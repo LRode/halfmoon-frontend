@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    height: 70px;
+    height: 75px;
     padding: 0 50px;
     position: sticky;
     top: 0;
@@ -27,10 +27,9 @@
 
 .logo {
     display: inline-block;
-    height: 75px;
+    height: 65px;
     width: auto;
-    padding-top: 10px;
-    /* flex: 1 1 1; */
+    cursor: pointer;
 }
 
 .navLinks {
@@ -44,7 +43,6 @@
     display: flex;
     width: 30%;
     min-width: 18%!important;
-    /* flex: 1 1 1; */
 }
 
 .searchInput {
@@ -57,38 +55,63 @@
     align-self: center;
     flex: 1 1 auto;
     height: 30px;
-    filter: brightness(120%);
     cursor: pointer;
+    background-image: url("/magnifying-glass.svg");
+    background-position: center;
+    background-repeat: no-repeat;   
+    border-style: solid;
+    border-width: 1px;
+    background-size: 20%;
 }
 
 .menuIcon {
     width: 40px;
+    height: 40px;
     text-align: center;
     margin: 0 50px;
-    font-size: 18px;
-    color:black;
     cursor: pointer;
     display: none;
+    background-image: url("/menu.svg");
+    background-color: white;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-style: none; 
   }
 
 .searchIcon {
     width: 40px;
+    height: 40px;
     text-align: center;
     margin: 0 50px;
     font-size: 18px;
     color:black;
     cursor: pointer;
     display: none;
+    background-image: url("/magnifying-glass.svg");
+    background-color: white;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-style: none; 
   }
 
-.cancelIcon {
-  width: 40px;
-  text-align: center;
-  margin: 0 50px;
-  font-size: 18px;
-  color:black;
+
+.xIcon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-top: 0px;
+  padding-left: 40px;
+  background-image: url("/cancel.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border-style: none;
+  background-color: white;
+  background-size: 50%;
   cursor: pointer;
-  display: none;
+  min-width: 50px;
+  min-height: 50px;
 }
 
 .menuIcon span,
@@ -100,35 +123,91 @@
 .mobileNavMenu {
   position: fixed;
   top: 0;
-  width: 250px;
+  width: 200px;
   height: 100vh;
-  padding: 15px;
+  padding: 30px;
   background-color: white;
   display: flex;
   flex-direction: column;
   left: -250px;
   transition: all 0.3s;
   box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.15);
+  display: none;
 }
 
 .mobileNavMenu.open {
   left: 0;
 }
 
+.linksNav {
+  display: inline-block;
+  padding: 25px 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.activeLinkNav {
+  color: #5CA2D5;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.mobileNavSearch {
+  position: fixed;
+  top: 0;
+  width: 350px;
+  height: 50px;
+  padding: 30px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: -350px;
+  top: 75px;
+  transition: all 0.3s;
+  box-shadow: 0px 15px 15px 0 rgba(0, 0, 0, 0.15);
+  display: none;
+}
+
+.mobileNavSearch.open {
+  right: 0;
+}
+
+.searchFormNav {
+  display: inline-block;
+  height: 30px;
+  width: 100%;
+}
+
+.formButtonNav {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-image: url("/magnifying-glass.svg");
+  background-position: center;
+  background-repeat: no-repeat;   
+  border-style: solid;
+  border-width: 1px;
+  background-size: 65%;
+}
 
 
 @media (max-width: 1245px) {
+
     .navBar{
       padding: 0 50px;
     }
+    
   }
 @media (max-width: 1140px){
+
   .navBar{
     padding: 0px;
   }
   .logo {
     flex: 1;
     text-align: center;
+    transition: right 0.5s ease, opacity 0.1s ease;
   }
   .navLinks {
     position: fixed;
@@ -149,48 +228,49 @@
     left: 0px;
   } 
 
-.links {
+  .links {
     line-height: 40px;
     margin: 30px 0;
     font-size: 20px;
   }
+
+  .mobileNavSearch {
+    position: fixed;
+    top: 0;
+    width: 350px;
+    height: 50px;
+    padding: 30px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -350px;
+    top: 75px;
+    transition: all 0.3s;
+    box-shadow: 0px 15px 15px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  .mobileNavMenu {
+    position: fixed;
+    top: 0;
+    width: 200px;
+    height: 100vh;
+    padding: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    left: -250px;
+    transition: all 0.3s;
+    box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.15);
+  }
+  
   .searchForm {
     position: absolute;
     top: 80px;
     right: 50px;
     opacity: 0;
     pointer-events: none;
-    transition: top 0.3s ease, opacity 0.1s ease;
-  }
-  .searcForm.active {
-    top: 95px;
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .searchForm::before {
-    position: absolute;
-    content: "";
-    top: -13px;
-    right: 0px;
-    width: 0;
-    height: 0;
-    z-index: -1;
-    border: 10px solid transparent;
-    border-bottom-color: #1e232b;
-    margin: -20px 0 0;
-  }
-  .searchForm::after {
-    position: absolute;
-    content: '';
-    height: 60px;
-    padding: 2px;
-    background: #1e232b;
-    border-radius: 2px;
-    min-width: calc(100% + 20px);
-    z-index: -2;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    display: none;
   }
   .menuIcon {
     display: block;
@@ -214,26 +294,38 @@
 }
 
 @media (max-width: 980px){
+
     .menuIcon {
         margin: 0 20px;
     }
     .searchIcon{
         margin: 0 20px;
     }
-    .searchForm{
-        right: 30px;
-    }
+
 }
-@media (max-width: 350px){
-    .menuIcon{
-        margin: 0 10px;
-        font-size: 16px;
-      }
-   
-    .searchIcon{
-      margin: 0 10px;
-      font-size: 16px;
-    }
+
+@media (max-width: 400px){
+
+    .mobileNavSearch {
+      width: 400px;
+      right: -400px;
+    } 
+  }
+@media (max-width: 375px){
+
+    .mobileNavSearch {
+      width: 375px;
+      right: -375px;
+    }  
+  }
+
+@media (max-width: 360px){
+
+  .mobileNavSearch {
+    width: 360px;
+    right: -360px;
+  }
+  
 }
 
 
