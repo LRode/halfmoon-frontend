@@ -125,7 +125,11 @@
   top: 0;
   width: 200px;
   height: 100vh;
+<<<<<<< HEAD
   padding: 30px;
+=======
+  padding: 15px;
+>>>>>>> parent of c6d6ce9... adjusted the searchbar CSS, got rid of forms
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -191,6 +195,7 @@
   background-size: 65%;
 }
 
+<<<<<<< HEAD
 
 @media (max-width: 1245px) {
 
@@ -199,6 +204,8 @@
     }
     
   }
+=======
+>>>>>>> parent of c6d6ce9... adjusted the searchbar CSS, got rid of forms
 @media (max-width: 1140px){
 
   .navBar{
@@ -327,7 +334,10 @@
   }
   
 }
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> parent of c6d6ce9... adjusted the searchbar CSS, got rid of forms
