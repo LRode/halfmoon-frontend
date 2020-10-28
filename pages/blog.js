@@ -35,7 +35,7 @@ export default function Products({ products }) {
 // This function gets called at build time
 export async function getStaticProps() {
     // Call an external API endpoint to get products
-    const res = await axios.get('http://localhost:1337/products');
+    const res = await axios.get('/products');
     const products = res.data;
 
     // By returning { props: products }, the Products component
