@@ -18,14 +18,6 @@ export default function Header({ activePage }) {
             <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
             <nav className={styles.navBar}>
-<<<<<<< HEAD
-=======
-
-                <button
-                    className={styles.menuIcon}
-                    onClick={() => setIsOpen(!isOpen)}>
-                </button>
->>>>>>> parent of c6d6ce9... adjusted the searchbar CSS, got rid of forms
 
                 <button
                     className={styles.menuIcon}
@@ -70,8 +62,6 @@ export default function Header({ activePage }) {
                 </div>
 
                 <div ref={mobileNavMenuRef} className={`${styles.mobileNavMenu} ${isOpen ? styles.open : ''}`}>
-                    <button className={styles.xIcon} onClick={() => setIsOpen(!isOpen)}>
-                    </button>
                     <Link href="/">
                         <a className={`${styles.linksNav} ${activePage === 'Home' ? styles.activeLinkNav : ''}`}>
                             Home
