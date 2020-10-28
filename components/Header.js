@@ -24,7 +24,7 @@ export default function Header({ activePage }) {
                     onClick={() => setIsOpen(!isOpen)}>
                 </button>
 
-                <img src="/HMLogo.svg" alt="logo" className={styles.logo} href="/" />
+                <Link href="/"><img src="/HMLogo.svg" alt="logo" className={styles.logo}/></Link>
 
                 <div className={styles.navLinks}>
                     <Link href="/">
