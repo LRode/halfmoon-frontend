@@ -236,7 +236,7 @@
   .mobileNavSearch {
     position: fixed;
     top: 0;
-    width: 350px;
+    width: 100%;
     height: 50px;
     padding: 30px;
     background-color: white;
@@ -326,5 +326,4 @@
   }
   
 }
-
 
