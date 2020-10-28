@@ -62,6 +62,8 @@ export default function Header({ activePage }) {
                 </div>
 
                 <div ref={mobileNavMenuRef} className={`${styles.mobileNavMenu} ${isOpen ? styles.open : ''}`}>
+                    <button className={styles.xIcon} onClick={() => setIsOpen(!isOpen)}>
+                    </button>
                     <Link href="/">
                         <a className={`${styles.linksNav} ${activePage === 'Home' ? styles.activeLinkNav : ''}`}>
                             Home
@@ -82,8 +84,6 @@ export default function Header({ activePage }) {
                             Contact Us
                         </a>
                     </Link>
-                    <button className={styles.xIcon} onClick={() => setIsOpen(!isOpen)}>
-                    </button>
                 </div>
             </nav>
         </React.Fragment>
