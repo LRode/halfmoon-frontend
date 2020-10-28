@@ -18,9 +18,11 @@ export default function Header({ activePage }) {
             <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
             <nav className={styles.navBar}>
-            
-                {isOpen && <button className={styles.menuIconClose} onClick={() => setIsOpen(false)}></button>}
-                {!isOpen && <button className={styles.menuIcon} onClick={() => setIsOpen(true)}></button>}
+
+                <button
+                    className={styles.menuIcon}
+                    onClick={() => setIsOpen(!isOpen)}>
+                </button>
 
                 <Link href="/"><img src="/HMLogo.svg" alt="logo" className={styles.logo}/></Link>
 
@@ -47,18 +49,21 @@ export default function Header({ activePage }) {
                     </Link>
                 </div>
 
-                {isOpenSearch && <button className={styles.searchIconClose} onClick={() => setIsOpenSearch(false)}></button>}
-                {!isOpenSearch && <button className={styles.searchIcon} onClick={() => setIsOpenSearch(true)}></button>}
-                
-                <input type="search" name="search" placeholder="Search..." className={styles.searchInput} />
-                <button type="submit" className={styles.formButton}></button>
+                <button className={styles.searchIcon} onClick={() => setIsOpenSearch(!isOpenSearch)}></button>
 
-                <div ref={mobileNavSearchRef} className={`${styles.mobileNavSearch} ${isOpenSearch ? styles.open : ''}`}>
+                <form action="/search" method="get" className={styles.searchForm}>
                     <input type="search" name="search" placeholder="Search..." className={styles.searchInput} />
                     <button type="submit" className={styles.formButton}></button>
+                </form>
+
+                <div ref={mobileNavSearchRef} className={`${styles.mobileNavSearch} ${isOpenSearch ? styles.open : ''}`}>
+                    <input type="search" name="search" placeholder="Search..." className={styles.searchFormNav} />
+                    <button type="submit" className={styles.formButtonNav}></button>
                 </div>
-            
+
                 <div ref={mobileNavMenuRef} className={`${styles.mobileNavMenu} ${isOpen ? styles.open : ''}`}>
+                    <button className={styles.xIcon} onClick={() => setIsOpen(!isOpen)}>
+                    </button>
                     <Link href="/">
                         <a className={`${styles.linksNav} ${activePage === 'Home' ? styles.activeLinkNav : ''}`}>
                             Home
