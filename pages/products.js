@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
+import Dropdown from '../components/Dropdown.js';
 
 export default function Products({ products }) {
     return (
@@ -16,6 +17,7 @@ export default function Products({ products }) {
 
             <Header activePage="Products" />
             <main className={styles.main}>
+                <Dropdown sortOptions={["Newest", "Oldest", "Alphabetical"]} sortId="productSort"/>
                 {products.map((product) => (
                     <Link href={`/products/${product.id}`}>
                         <a>
@@ -26,6 +28,7 @@ export default function Products({ products }) {
                     </Link>
                 ))}
             </main>
+            
             <Footer />
         </div>
     )
