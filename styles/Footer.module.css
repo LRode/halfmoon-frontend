@@ -1,9 +1,168 @@
 .footer {
     width: 100%;
-    height: 100px;
+    height: 160px;
     border-top: 1px solid #eaeaea;
+  }
+
+.topLine {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 25px 50px;
+    flex-wrap: wrap;
+}
+
+.logoBox {
+    display: flex;
+    height: 70px;
+    padding-top: 5px;
+}
+
+.logo {
+    display: inline-block;
+    height: 45px;
+    width: auto;
+    cursor: pointer;
+}
+
+.leftBox {
+    display: flex;
+    flex:1;
+    height: 70px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.mapIcon {
+    height: 40px;
+}
+
+.addressBox {
+    font-size: 15px;
+    color: #18A0FB;
+}
+
+.addressBox p {
+    margin-top: .50px;
+    line-height: 10px;
+}
+
+.hoursBox {
+    padding-left: 20px;
+    font-size: 15px;
+}
+
+.hoursBox p {
+    margin-top: .50px;
+    line-height: 10px;
+}
+
+.rightBox{
+    display: flex;
+    align-self: flex-end;
+    height: 70px;
+}
+
+.navBox a {
+    padding-left: 50px;
+    font-weight: 500;
+}
+
+.bottomLine {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 50px;
+    height: 75px;
+    border-width: 50%;
+}
+
+.bottomLeftBox {
+    display:flex;  
+}
+
+.bottomLeftBox p {
+    margin-top: 0;
+    font-weight: 300;
+}
+
+.bottomRightBox {
+    display: flex;
+}
+
+.bottomRightBox p {
+    margin-top: 0;
+    font-weight: 500;
+    color: #18A0FB;
+}
+
+.phone {
+    height: 25px;
+    padding-right: 10px;
+}
+
+.envelope {
+    height: 25px;
+    padding-left: 25px;
+    padding-right: 10px;
+}
+
+.fbIcon {
+    height: 25px;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+.email p{
+    cursor: pointer;
+}
+
+.solid {
+    border-top: 1px solid black;
+    width: 94%;
     
+  }
+
+@media (max-width: 1140px){
+
+    .rightBox{
+        display:none;
+    }
+
+    .topLine {
+        justify-content: center;
+    }
+
+    .leftBox {
+        flex: none;
+    }
+
+    .bottomLine {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .bottomLeftBox{
+        order:2;
+    }
+
+    .bottomRightBox {
+        padding-top: 15px;
+        order:1;
+    }
+    
+  }
+
+@media (max-width: 600px) {
+
+    .leftBox {
+        padding-left: 0;
+    }
+
+    .bottomLine {
+        padding: 0px 10px;
+    }
+
   }
