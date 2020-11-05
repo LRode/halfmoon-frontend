@@ -1,34 +1,37 @@
 import styles from '../styles/Footer.module.css';
 import Link from 'next/link'
+import React from "react";
 
 export default function Footer() {
     return (
         <footer className={styles.footer}>
 
             <div className={styles.topLine}>
+
                 <div className={styles.logoBox}>
                     <Link href="/"><img src="/HMLogo.svg" alt="logo" className={styles.logo} /></Link>
-
                 </div>
 
                 <div className={styles.leftBox}>
 
-                    <img src="/mapicon.svg" className={styles.mapIcon} />
+                    <div>
+                        <img src="/mapicon.svg" className={styles.mapIcon} />
+                    </div>
 
-                    <div className={styles.addressBox}>
+                    <Link href="https://goo.gl/maps/eAUVuMgsLMhacw3S7" target="_blank"><div className={styles.addressBox}>
 
                         <p>8171 Main St</p>
                         <p>Vancouver, BC</p>
                         <p>VSX 3L2</p>
 
-                    </div>
+                    </div></Link>
                     <div className={styles.hoursBox}>
 
                         <p>Monday - Saturday</p>
                         <p>Sunday</p>
 
                     </div>
-                    <div className={styles.hoursBox}>
+                    <div className={styles.hoursTime}>
 
                         <p>12 - 7 PM</p>
                         <p>12 - 6 PM</p>
@@ -58,27 +61,27 @@ export default function Footer() {
 
                 <div className={styles.bottomLeftBox}>
                     <p>
-                        © Halfmoon, 2020
-                        </p>
+                        © Halfmoon, {new Date().getFullYear()}
+                    </p>
 
                 </div>
 
                 <div className={styles.bottomRightBox}>
 
                     <div>
-                        <img src="/phone.svg" alt="logo" className={styles.phone} />
+                        <Link href="tel:123-456-7890"><img src="/phone.svg" alt="logo" className={styles.phone} /></Link>
+                    </div>
+
+                    <div className={styles.phoneNum}>
+                        <Link href="tel:123-456-7890">(604) 301-9075</Link>
                     </div>
 
                     <div>
-                        <p>(604) 301-9075</p>
-                    </div>
-
-                    <div>
-                        <img src="/envelope.svg" alt="logo" className={styles.envelope} />
+                        <Link href="mailto:info@animanga.me"><img src="/envelope.svg" alt="logo" className={styles.envelope} /></Link>
                     </div>
 
                     <div className={styles.email}>
-                        <Link href="mailto:info@animanga.me"><p>info@animanga.me</p></Link>
+                        <Link href="mailto:info@animanga.me">info@animanga.me</Link>
                     </div>
 
                     <div>

@@ -2,6 +2,7 @@
     width: 100%;
     height: 160px;
     border-top: 1px solid #eaeaea;
+    /* overflow-y: hidden; */
   }
 
 .topLine {
@@ -27,10 +28,10 @@
 
 .leftBox {
     display: flex;
-    flex:1;
+    flex-grow: 1;
     height: 70px;
     padding-top: 5px;
-    padding-left: 10px;
+    padding-left: 25px;
 }
 
 .mapIcon {
@@ -45,10 +46,11 @@
 .addressBox p {
     margin-top: .50px;
     line-height: 10px;
+    cursor: pointer;
 }
 
 .hoursBox {
-    padding-left: 20px;
+    padding-left: 25px;
     font-size: 15px;
 }
 
@@ -57,9 +59,18 @@
     line-height: 10px;
 }
 
+.hoursTime {
+    padding-left: 25px;
+    font-size: 15px;
+}
+
+.hoursTime p {
+    margin-top: .50px;
+    line-height: 10px;
+}
+
 .rightBox{
     display: flex;
-    align-self: flex-end;
     height: 70px;
 }
 
@@ -78,20 +89,16 @@
 }
 
 .bottomLeftBox {
-    display:flex;  
+    display:flex;
 }
 
 .bottomLeftBox p {
-    margin-top: 0;
     font-weight: 300;
 }
 
 .bottomRightBox {
     display: flex;
-}
-
-.bottomRightBox p {
-    margin-top: 0;
+    align-items: center;
     font-weight: 500;
     color: #18A0FB;
 }
@@ -99,28 +106,28 @@
 .phone {
     height: 25px;
     padding-right: 10px;
+    margin-top: 7px;
+    cursor: pointer;
 }
 
 .envelope {
     height: 25px;
     padding-left: 25px;
     padding-right: 10px;
+    margin-top: 7px;
+    cursor: pointer;
 }
 
 .fbIcon {
     height: 25px;
     padding-left: 30px;
     cursor: pointer;
-}
-
-.email p{
-    cursor: pointer;
+    margin-top: 7px;
 }
 
 .solid {
     border-top: 1px solid black;
     width: 94%;
-    
   }
 
 @media (max-width: 1140px){
@@ -131,17 +138,20 @@
 
     .topLine {
         justify-content: center;
+        padding-bottom: 10px;
+    }
+    .logoBox {
+        justify-content: center;
     }
 
     .leftBox {
-        flex: none;
+        flex-grow: 0;
+        justify-content: center;
     }
 
     .bottomLine {
-        display: flex;
         justify-content: center;
         flex-direction: column;
-        flex-wrap: nowrap;
     }
 
     .bottomLeftBox{
@@ -154,15 +164,52 @@
     }
     
   }
-
-@media (max-width: 600px) {
+ 
+@media (max-width: 525px) {
 
     .leftBox {
-        padding-left: 0;
+        flex-wrap: wrap;
+        padding-left: 0px;
+        padding-bottom: 115px;
+    }
+
+    
+    .mapIcon {
+        order: 1;
+        flex: 1 0 auto;
+    }
+
+    .addressBox {
+        order:2;
+        flex: 0 0 100px;
+    } 
+
+    .hoursBox {
+        padding-top: 15px;
+        padding-left: 0px;
+        flex: 0 0 60%;
+        order: 3;
+    }
+
+    .hoursTime {
+        padding-top: 15px;
+        padding-left: 20px;
+        flex: 1 0 0%;
+        order: 4;
+    }  
+
+    .phoneNum {
+        display: none;
+    }
+
+    .email {
+        display: none;
     }
 
     .bottomLine {
-        padding: 0px 10px;
+        padding-top: 5px;
     }
 
-  }
+
+
+  } 
