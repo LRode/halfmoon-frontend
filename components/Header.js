@@ -8,9 +8,9 @@ export default function Header({ activePage }) {
     const [isOpen, setIsOpen] = useState(false);
     const [isOpenSearch, setIsOpenSearch] = useState(false);
     const mobileNavMenuRef = useRef(null);
-    const mobileNavSearchRef = useRef(null);
+    const navSearchRef = useRef(null);
     useOnClickOutside(mobileNavMenuRef, () => setIsOpen(false));
-    useOnClickOutside(mobileNavSearchRef, () => setIsOpenSearch(false));
+    useOnClickOutside(navSearchRef, () => setIsOpenSearch(false));
 
     return (
         <React.Fragment>
@@ -49,11 +49,8 @@ export default function Header({ activePage }) {
 
                 {isOpenSearch && <button className={styles.searchIconClose} onClick={() => setIsOpenSearch(false)}></button>}
                 {!isOpenSearch && <button className={styles.searchIcon} onClick={() => setIsOpenSearch(true)}></button>}
-                
-                <input type="search" name="search" placeholder="Search..." className={styles.searchInput} />
-                <button type="submit" className={styles.formButton}></button>
 
-                <div ref={mobileNavSearchRef} className={`${styles.mobileNavSearch} ${isOpenSearch ? styles.open : ''}`}>
+                <div ref={navSearchRef} className={`${styles.navSearchContainer} ${isOpenSearch ? styles.open : ''}`}>
                     <input type="search" name="search" placeholder="Search..." className={styles.searchInput} />
                     <button type="submit" className={styles.formButton}></button>
                 </div>

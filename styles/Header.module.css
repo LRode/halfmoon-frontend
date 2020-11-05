@@ -39,31 +39,38 @@
     flex: 1;
 }
 
+
+.navSearchContainer {
+  width: 300px;
+  display: flex;
+}
+
+.navSearchContainer.open {
+  right: 0;
+}
+
 .searchInput {
-  display: inline-block;
-  width: 25%;
-  padding-left: 10px;
-  min-width: 18%!important;
-  height: 30px;
-  border-width: 0px;
-  background-color: #ECF0F1;
-  
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #aaaaaa;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .formButton{
-  height: 30px;
-  width: 40px;
+  width: 45px;
+  height: 37px;
   cursor: pointer;
-  background-image: url("/magnifying-glass.svg");
-  background-color: #ECF0F1;
+  background-image: url(/magnifying-glass.svg);
+  background-color: #ffffff;
   background-position: center;
-  background-repeat: no-repeat;   
-  border-style: solid;
-  background-size: 50%;
-  border-left-width: 1px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
+  background-repeat: no-repeat;
+  background-size: 40%;
+  border: 1px solid #aaaaaa;
+  border-left: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 } 
 
 .menuIcon {
@@ -156,28 +163,22 @@
   font-weight: bold;
 }
 
-.mobileNavSearch {
-  display: none;
-}
 
-.mobileNavSearch.open {
-  right: 0;
-}
 
-@media (max-width: 1140px){
+@media (max-width: 1140px) {
 
   .navBar{
     padding: 0px;
   }
+
   .navLinks {
     display: none;
   }
-  .mobileNavSearch {
+
+  .navSearchContainer {
     position: fixed;
-    top: 0;
     width: 100%;
-    height: 50px;
-    padding: 30px;
+    padding: 15px 30px;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -187,9 +188,9 @@
     transition: all 0.3s;
     box-shadow: 0px 15px 15px 0 rgba(0, 0, 0, 0.15);
   }
+
   .mobileNavMenu {
     position: fixed;
-    top: 0;
     width: 200px;
     height: 100vh;
     top: 75px;
@@ -200,31 +201,6 @@
     left: -250px;
     transition: all 0.3s;
     box-shadow: 0px 15px 15px 0 rgba(0, 0, 0, 0.15);
-  }
-  
-  .searchInput {
-    display: inline-block;
-    padding-left: 15px;
-    height: 30px;
-    width: 100%;
-    border-width: 0px;
-    background-color: #ECF0F1;
-  }
-  
-  .formButton {
-    width: 20%;
-    height: 30px;
-    cursor: pointer;
-    background-image: url("/magnifying-glass.svg");
-    background-color: #ECF0F1;
-    background-position: center;
-    background-repeat: no-repeat;   
-    border-style: solid;
-    border-left-width: 1px;
-    border-right-width: 0px;
-    border-top-width: 0px;
-    border-bottom-width: 0px;
-    background-size: 20px;
   }
 
   .menuIcon {
