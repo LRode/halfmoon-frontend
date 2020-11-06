@@ -2,13 +2,12 @@
     width: 100%;
     height: 160px;
     border-top: 1px solid #eaeaea;
-    /* overflow-y: hidden; */
   }
 
 .topLine {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 25px 50px;
     flex-wrap: wrap;
 }
@@ -29,13 +28,17 @@
 .leftBox {
     display: flex;
     flex-grow: 1;
-    height: 70px;
     padding-top: 5px;
-    padding-left: 25px;
+    padding-left: 35px;
+}
+
+.addressContainer {
+    display: flex;
 }
 
 .mapIcon {
     height: 40px;
+    margin-right: 6px;
 }
 
 .addressBox {
@@ -45,18 +48,20 @@
 
 .addressBox p {
     margin-top: .50px;
-    line-height: 10px;
     cursor: pointer;
 }
 
+.hoursContainer {
+    display: flex;
+}
+
 .hoursBox {
-    padding-left: 25px;
+    padding-left: 40px;
     font-size: 15px;
 }
 
 .hoursBox p {
     margin-top: .50px;
-    line-height: 10px;
 }
 
 .hoursTime {
@@ -66,12 +71,10 @@
 
 .hoursTime p {
     margin-top: .50px;
-    line-height: 10px;
 }
 
 .rightBox{
     display: flex;
-    height: 70px;
 }
 
 .navBox a {
@@ -83,13 +86,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 50px;
-    height: 75px;
+    padding: 10px 50px 20px 50px;
     border-width: 50%;
 }
 
 .bottomLeftBox {
-    display:flex;
+    display: flex;
 }
 
 .bottomLeftBox p {
@@ -132,7 +134,7 @@
 
 @media (max-width: 1140px){
 
-    .rightBox{
+    .rightBox {
         display:none;
     }
 
@@ -155,47 +157,67 @@
     }
 
     .bottomLeftBox{
-        order:2;
+        order: 1;
+        margin-top: 20px;
     }
 
     .bottomRightBox {
         padding-top: 15px;
-        order:1;
     }
     
   }
+
+@media (max-width: 768px) {
+
+    .logoBox {
+        margin-bottom: 15px;
+    }
+
+    .leftBox {
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0;
+    }
+
+    .hoursContainer {
+        width: 100%;
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .hoursBox {
+        padding-left: 0;
+    }
+
+    .addressContainer {
+        width: 100%;
+        justify-content: center;
+    }
+}
  
 @media (max-width: 525px) {
 
     .leftBox {
-        flex-wrap: wrap;
         padding-left: 0px;
-        padding-bottom: 115px;
     }
 
     
     .mapIcon {
-        order: 1;
         flex: 1 0 auto;
     }
 
     .addressBox {
-        order:2;
         flex: 0 0 100px;
     } 
 
     .hoursBox {
         padding-top: 15px;
         padding-left: 0px;
-        flex: 0 0 60%;
-        order: 3;
     }
 
     .hoursTime {
         padding-top: 15px;
         padding-left: 20px;
-        flex: 1 0 0%;
-        order: 4;
     }  
 
     .phoneNum {
@@ -209,7 +231,4 @@
     .bottomLine {
         padding-top: 5px;
     }
-
-
-
   } 

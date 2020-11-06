@@ -14,28 +14,31 @@ export default function Footer() {
 
                 <div className={styles.leftBox}>
 
-                    <div>
-                        <img src="/mapicon.svg" className={styles.mapIcon} />
+                    <div className={styles.addressContainer}>
+                        <div>
+                            <img src="/mapicon.svg" className={styles.mapIcon} />
+                        </div>
+
+                        <Link href="https://goo.gl/maps/eAUVuMgsLMhacw3S7">
+                            <a target="_blank">
+                                <div className={styles.addressBox}>
+                                    <p>8171 Main St</p>
+                                    <p>Vancouver, BC</p>
+                                    <p>VSX 3L2</p>
+                                </div>
+                            </a>
+                        </Link>
                     </div>
 
-                    <Link href="https://goo.gl/maps/eAUVuMgsLMhacw3S7" target="_blank"><div className={styles.addressBox}>
-
-                        <p>8171 Main St</p>
-                        <p>Vancouver, BC</p>
-                        <p>VSX 3L2</p>
-
-                    </div></Link>
-                    <div className={styles.hoursBox}>
-
-                        <p>Monday - Saturday</p>
-                        <p>Sunday</p>
-
-                    </div>
-                    <div className={styles.hoursTime}>
-
-                        <p>12 - 7 PM</p>
-                        <p>12 - 6 PM</p>
-
+                    <div className={styles.hoursContainer}>
+                        <div className={styles.hoursBox}>
+                            <p>Monday - Saturday</p>
+                            <p>Sunday</p>
+                        </div>
+                        <div className={styles.hoursTime}>
+                            <p>12 - 7 PM</p>
+                            <p>12 - 6 PM</p>
+                        </div>
                     </div>
 
                 </div>
