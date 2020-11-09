@@ -23,7 +23,9 @@ export default function Posts({ posts }) {
                         <a>
                             <article key={post.id}>
                                 {post.Title}
+                                <img src={post.FeaturedImage.url}></img>
                             </article>
+                            
                         </a>
                     </Link>
                 ))}
