@@ -6,6 +6,8 @@ import Link from 'next/link';
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 import Dropdown from '../components/Dropdown.js';
+import Accordion from '../components/Accordion';
+import Checklist from '../components/Checklist';
 
 export default function Products({ products }) {
     return (
@@ -17,6 +19,7 @@ export default function Products({ products }) {
 
             <Header activePage="Products" />
             <main className={styles.main}>
+                <Accordion accordionTitle="Category" accordionContent={<Checklist menuItems={["1", "2", "3"]} menuName="Test"/>}/>
                 <Dropdown sortOptions={["Newest", "Oldest", "Alphabetical"]} sortId="productSort"/>
                 {products.map((product) => (
                     <Link href={`/products/${product.id}`}>
