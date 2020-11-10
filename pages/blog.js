@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
+import BlogBlock from '../components/BlogBlock';
 
 export default function Posts({ posts }) {
     return (
@@ -19,15 +20,9 @@ export default function Posts({ posts }) {
 
             <main className={styles.main}>
                 {posts.map((post) => (
-                    <Link href={`/posts/${post.id}`}>
-                        <a>
-                            <article key={post.id}>
-                                {post.Title}
-                                <img src={post.FeaturedImage.url}></img>
-                            </article>
-                            
-                        </a>
-                    </Link>
+                    
+                    <BlogBlock post={post}/>
+                                
                 ))}
             </main>
             <Footer />
