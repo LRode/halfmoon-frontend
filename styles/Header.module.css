@@ -6,6 +6,7 @@
     flex-wrap: wrap;
     height: 75px;
     padding: 0 50px;
+    top: 0;
     width: 100%;
     position: sticky;
     background-color: white;
