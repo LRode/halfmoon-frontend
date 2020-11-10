@@ -19,11 +19,21 @@ export default function Posts({ posts }) {
             <Header activePage="Blog" />
 
             <main className={styles.main}>
-                {posts.map((post) => (
-                    
-                    <BlogBlock post={post}/>
-                                
-                ))}
+                <h1 className={styles.title}>
+                    Half Moon Blog
+                </h1>
+                <div className={styles.blogContainer}>
+                    <div className={styles.filterBox}>
+                        <p>filter here</p>
+                    </div>
+                    <div className={styles.blogGrid}>
+                        <div className={styles.blog}>
+                            {posts.map((post) => (
+                                <BlogBlock post={post} className={styles.blog} />
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </main>
             <Footer />
         </div>
