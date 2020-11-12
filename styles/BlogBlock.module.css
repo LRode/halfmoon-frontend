@@ -1,20 +1,20 @@
 .block {
     width: 100%;
-    min-height: 200px;
+    min-height: 225px;
     border: 1px solid #eaeaea;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
 
 .blogBox {
     display: flex;
-    padding: 10px 10px 5px 10px;
+    min-height: 225px;
     align-items: center;
 }
 
 .imgBox {
     display: flex;
-    width: 40%;
-    max-height: 175px;
+    width: 35%;
+    min-height: 225px;
 }
 
 .img {
@@ -23,15 +23,13 @@
     max-height: 100%;
     object-fit: cover;
     flex: 1;
-
 }
 
 .textBox {
     display: flex;
-    width: 60%;
+    width: 65%;
     padding-left: 25px;
     flex-direction: column;
-    padding-bottom: 5px;
 }
 
 .textBox h3 {
@@ -47,7 +45,7 @@
     max-width: 800px;
 }
 
-.demo {
+.content {
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -61,7 +59,7 @@
     text-decoration: underline;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
     .block {
         height: auto;
     }
@@ -73,15 +71,15 @@
     .imgBox {
         justify-content: center;
         width: 100%;
+        height: auto;
     }
 
     .textBox {
         width: 100%;
         height: 100%;
         text-align: center;
-        padding-left: 0px;
-        padding-top: 10px;
+        padding: 10px 0 10px 0;
+        
     }
     
-
 }

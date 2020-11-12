@@ -8,10 +8,11 @@ export default function BlogBlock({ post }) {
         <div className={styles.block}>
             <Link href={`/posts/${post.id}`}>
                 <div className={styles.blogBox}>
-                    <div className={styles.imgBox}>    
-                        <Link href={`/posts/${post.id}`}><img src={post.FeaturedImage.url} className={styles.img}></img></Link>  
+                    <div className={styles.imgBox}>
+                        <Link href={`/posts/${post.id}`}><img src={post.FeaturedImage.url} className={styles.img}></img></Link>
                     </div>
                     <div className={styles.textBox}>
+
                         <div>
                             <h3>{post.Title}</h3>
                         </div>
@@ -19,7 +20,7 @@ export default function BlogBlock({ post }) {
                             <p>{post.Date} | {post.post_category.Name}</p>
                         </div>
                         <div className={styles.blogDetails}>
-                            <p className={styles.demo}>{post.Content}</p>
+                            <p className={styles.content}>{post.Content}</p>
                         </div>
                         <div>
                             <Link href={`/posts/${post.id}`}>
@@ -28,6 +29,7 @@ export default function BlogBlock({ post }) {
                             </a>
                             </Link>
                         </div>
+
                     </div>
                 </div>
             </Link>
