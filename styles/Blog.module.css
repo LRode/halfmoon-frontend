@@ -1,0 +1,64 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    padding: 5rem 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.titleBox {
+    padding: 3rem 0rem 0 0;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.blogContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.blogGrid {
+    display: flex;
+    flex-grow: 1;
+    width:85%;
+    justify-content: center;
+}
+
+.filterBox {
+    display: flex;
+    width:35%;
+    justify-content: center;
+}
+
+.blog {
+    width: 90%;
+}
+
+@media (max-width: 768px) {
+    
+    .blogContainer {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .blogGrid {
+        width: 100%;
+    } 
+
+    .filterBox {
+        width: 100%;
+    }
+
+    .blog {
+        width: 100%;
+    }
+}

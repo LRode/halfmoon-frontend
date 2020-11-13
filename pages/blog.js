@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 
-export default function Products({ products }) {
+export default function Blogs({ posts }) {
     return (
         <div className={`${styles.container}`}>
             <Head>
@@ -17,11 +17,11 @@ export default function Products({ products }) {
             <Header activePage="Blog" />
 
             <main className={styles.main}>
-                {products.map((product) => (
-                    <Link href={`/products/${product.id}`}>
+                {posts.map((post) => (
+                    <Link href={`/blog/${post.id}`}>
                         <a>
-                            <article key={product.id}>
-                                {product.Title}
+                            <article key={post.id}>
+                                {post.Title}
                             </article>
                         </a>
                     </Link>
@@ -35,14 +35,14 @@ export default function Products({ products }) {
 // This function gets called at build time
 export async function getStaticProps() {
     // Call an external API endpoint to get products
-    const res = await axios.get('/products');
-    const products = res.data;
+    const res = await axios.get('/posts');
+    const posts = res.data;
 
     // By returning { props: products }, the Products component
     // will receive `products` as a prop at build time
     return {
         props: {
-            products,
+            posts,
         },
     }
 }

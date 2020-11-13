@@ -129,7 +129,7 @@
 
 .solid {
     border-top: 1px solid black;
-    width: 94%;
+    width: 100%;
   }
 
 @media (max-width: 1140px){
