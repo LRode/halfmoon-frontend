@@ -5,6 +5,7 @@ import axios from '../services/axios.config';
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 import BlogBlock from '../components/BlogBlock';
+import PageTitle from '../components/pageTitle';
 
 export default function Posts({ posts }) {
     return (
@@ -17,10 +18,17 @@ export default function Posts({ posts }) {
 
             <Header activePage="Blog" />
 
+            {/* <div className={styles.titleBox}>
+                    <PageTitle title='Blog' url='/'/>
+                </div> */}
+
             <main className={styles.main}>
-                <h1 className={styles.title}>
-                    Half Moon Blog
-                </h1>
+
+                <div >
+                    <PageTitle title='Products' url='/'/>
+                </div>
+               
+
                 <div className={styles.blogContainer}>
                     <div className={styles.filterBox}>
                         <p>filter here</p>
