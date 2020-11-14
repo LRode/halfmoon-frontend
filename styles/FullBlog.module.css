@@ -8,6 +8,19 @@
     flex-direction: column;
 }
 
+.blog p {
+    font-size: 20px;
+}
+
+.blog h3 {
+    font-size: 32px;
+    margin: 20px 0 10px 0;
+}
+
+.date {
+    font-weight: 500;
+}
+
 .imgBox {
     display: flex;
 }
@@ -29,6 +42,12 @@
     border-top: 1px solid black;
   }
 
+.contentBlock img {
+    display: block;
+    margin: 25px auto 25px auto;
+    width: 75%;
+}
+
 @media (max-width: 950px) {
 
     .blogBox {
@@ -47,11 +66,20 @@
         text-align: center;
         padding: 10px 0 10px 0;  
     }
+
+    .contentBlock img {
+        width: 100%;
+    }
 }
 
 @media (max-width: 400px) {
-    .textBox h1 {
-        font-size: 20px;
+    
+    .textBox h3 {
+        font-size: 25px;
         margin: 0;
+    }
+
+    .blog p {
+        font-size: 16px;
     }
 }

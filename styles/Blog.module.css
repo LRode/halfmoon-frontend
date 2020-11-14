@@ -43,6 +43,7 @@
     width: 90%;
 }
 
+
 @media (max-width: 768px) {
     
     .blogContainer {
@@ -60,5 +61,9 @@
 
     .blog {
         width: 100%;
+    }
+
+    .main {
+        padding: 5rem 1rem;
     }
 }

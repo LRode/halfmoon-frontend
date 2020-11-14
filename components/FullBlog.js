@@ -12,16 +12,17 @@ export default function FullBlog({ post }) {
                 </div>
                 <div className={styles.textBox}>
                     <div>
-                        <h1>{post.Title}</h1>
+                        <h3>{post.Title}</h3>
                     </div>
-                    <div>
+                    <div className={styles.date}>
                         <p>{post.Date} | {post.post_category.Name}</p>
                     </div>
                     <div>
                         <hr className={styles.solid} />
                     </div>
-                    <div>
-                        <ReactMarkdown source={post.Content} />
+                    <div className={styles.contentBlock}>
+                        <ReactMarkdown source={post.Content}
+                        />
                     </div>
                 </div>
             </div>
