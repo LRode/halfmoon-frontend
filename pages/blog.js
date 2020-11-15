@@ -13,9 +13,7 @@ export default function Blogs({ posts }) {
                 <title>Halfmoon Manga + Anime | Blog </title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
             <Header activePage="Blog" />
-
             <main className={styles.main}>
                 {posts.map((post) => (
                     <Link href={`/blog/${post.id}`}>
@@ -46,3 +44,4 @@ export async function getStaticProps() {
         },
     }
 }
+

@@ -21,6 +21,14 @@
     width: 100%;
 }
 
+.redirect {
+    color: #5CA2D5;
+    text-decoration: underline;
+    width: 90%;
+    align-self: center; 
+    padding-bottom: 25px;
+}
+
 .blogContainer {
     display: flex;
     flex-direction: row;
@@ -29,18 +37,19 @@
 .blogGrid {
     display: flex;
     flex-grow: 1;
-    width:85%;
-    justify-content: center;
+    width:75%;
+    flex-direction: column;
 }
 
 .filterBox {
     display: flex;
-    width:35%;
+    width:25%;
     justify-content: center;
 }
 
 .blog {
     width: 90%;
+    align-self: center;
 }
 
 
@@ -65,5 +74,10 @@
 
     .main {
         padding: 5rem 1rem;
+    }
+
+    .redirect {
+        width: 100%;
+        text-align: center;
     }
 }
