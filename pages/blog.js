@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from '../styles/Blog.module.css'
+import styles from '../styles/Blogs.module.css'
 import axios from '../services/axios.config';
 
 import Header from '../components/Header.js';
@@ -10,25 +10,15 @@ import PageTitle from '../components/pageTitle';
 export default function Posts({ posts }) {
     return (
         <div className={styles.container}>
-
             <Head>
                 <title>Halfmoon Manga + Anime | Blog </title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
             <Header activePage="Blog" />
-
-            {/* <div className={styles.titleBox}>
-                    <PageTitle title='Blog' url='/'/>
-                </div> */}
-
             <main className={styles.main}>
-
                 <div >
-                    <PageTitle title='Products' url='/'/>
+                    <PageTitle title='Products' url='/' />
                 </div>
-               
-
                 <div className={styles.blogContainer}>
                     <div className={styles.filterBox}>
                         <p>filter here</p>

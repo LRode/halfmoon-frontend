@@ -4,15 +4,13 @@ import styles from '../styles/BlogBlock.module.css';
 
 export default function BlogBlock({ post }) {
     return (
-
         <div className={styles.block}>
             <Link href={`/posts/${post.id}`}>
                 <div className={styles.blogBox}>
                     <div className={styles.imgBox}>
-                        <Link href={`/posts/${post.id}`}><img src={post.FeaturedImage.url} className={styles.img}></img></Link>
+                        {post.FeaturedImage ? <img src={post.FeaturedImage.url} className={styles.img} /> : null}                                 
                     </div>
                     <div className={styles.textBox}>
-
                         <div>
                             <h3>{post.Title}</h3>
                         </div>
@@ -29,11 +27,9 @@ export default function BlogBlock({ post }) {
                             </a>
                             </Link>
                         </div>
-
                     </div>
                 </div>
             </Link>
         </div>
     )
 }
-

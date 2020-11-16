@@ -14,13 +14,6 @@
     width: 100%;
 }
 
-.titleBox {
-    padding: 3rem 0rem 0 0;
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-}
-
 .blogContainer {
     display: flex;
     flex-direction: row;
@@ -52,5 +45,9 @@
 
     .filterBox {
         width: 100%;
+    }
+
+    .main {
+        padding: 5rem 1rem;
     }
 }
