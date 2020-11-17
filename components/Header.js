@@ -37,7 +37,7 @@ export default function Header({ activePage }) {
                     </Link>
                     <Link href="/blog">
                         <a className={`${styles.links} ${activePage === 'Blog' ? styles.activeLink : ''}`}>
-                            Blogs
+                            Blog
                         </a>
                     </Link>
                     <Link href="/blog">
