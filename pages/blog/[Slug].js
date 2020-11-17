@@ -59,8 +59,8 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export async function getStaticProps({ params }) {
-  // params contains the post `id`.
-  // If the route is like /products/1, then params.id is 1
+  // params contains the post `Slug`.
+  // If the route is like /products/1, then params.Slug is half-moon-s-recommended-manga
   const res = await axios.get(`/posts/${params.Slug}`);
   const post = res.data;
 
