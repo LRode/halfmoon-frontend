@@ -49,8 +49,7 @@ export async function getStaticPaths() {
   const posts = res.data;
 
   // Get the paths we want to pre-render based on posts
-  console.log('Posts', posts);
-  const paths = posts.map((post) => `/blog/${post.id}`);
+  const paths = posts.map((post) => `/blog/${post.Slug}`);
   console.log('Paths', paths);
 
   // We'll pre-render only these paths at build time.
@@ -60,11 +59,9 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export async function getStaticProps({ params }) {
-  console.log("title=" + { params })
-  console.log("HELLO I AM KING OF THE WORLD")
   // params contains the post `id`.
   // If the route is like /products/1, then params.id is 1
-  const res = await axios.get(`/posts/${params.id}`);
+  const res = await axios.get(`/posts/${params.Slug}`);
   const post = res.data;
 
   // Pass post data to the page via props

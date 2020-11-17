@@ -16,9 +16,9 @@ export default function Blogs({ posts }) {
             <Header activePage="Blog" />
             <main className={styles.main}>
                 {posts.map((post) => (
-                    <Link href={`/blog/${post.id}`}>
+                    <Link href={`/blog/${post.Slug}`}>
                         <a>
-                            <article key={post.id}>
+                            <article key={post.Slug}>
                                 {post.Title}
                             </article>
                         </a>

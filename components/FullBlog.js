@@ -1,5 +1,4 @@
 import styles from '../styles/FullBlog.module.css';
-import Link from 'next/link'
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
@@ -8,7 +7,7 @@ export default function FullBlog({ post }) {
         <div className={styles.container}>
             <div className={styles.blog}>
                 <div className={styles.imgBox}>
-                    <img src={post.FeaturedImage.url} className={styles.img} />
+                    {post.FeaturedImage ? <img src={post.FeaturedImage.url} className={styles.img} /> : null}
                 </div>
                 <div className={styles.textBox}>
                     <div>
