@@ -6,6 +6,7 @@ import axios from '../../services/axios.config';
 import Header from '../../components/Header.js';
 import Footer from '../../components/Footer.js';
 import Blog_ from '../../components/FullBlog.js';
+import PageTitle from '../../components/pageTitle.js';
 
 export default function Blog({ post }) {
   return (
@@ -17,7 +18,7 @@ export default function Blog({ post }) {
       <Header activePage="Blog" />
       <main className={styles.main}>
         <div >
-          {/* <PageTitle title='Products' url='/blog'/> */}
+          <PageTitle title={'Products'} url='/blog' />
         </div>
         <div className={styles.blogContainer}>
           <div className={styles.filterBox}>

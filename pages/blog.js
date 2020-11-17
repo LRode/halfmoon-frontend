@@ -1,29 +1,39 @@
 import Head from 'next/head'
-import styles from '../styles/Products.module.css'
+import styles from '../styles/Blogs.module.css'
 import axios from '../services/axios.config';
-import Link from 'next/link';
-
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
+import BlogBlock from '../components/BlogBlock';
+import PageTitle from '../components/pageTitle';
 
-export default function Blogs({ posts }) {
+export default function Posts({ posts }) {
     return (
-        <div className={`${styles.container}`}>
+        <div className={styles.container}>
             <Head>
                 <title>Halfmoon Manga + Anime | Blog </title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header activePage="Blog" />
             <main className={styles.main}>
-                {posts.map((post) => (
-                    <Link href={`/blog/${post.Slug}`}>
-                        <a>
-                            <article key={post.Slug}>
-                                {post.Title}
-                            </article>
-                        </a>
-                    </Link>
-                ))}
+                <div >
+                    <PageTitle title='Products' url='/' />
+                </div>
+                <div className={styles.blogContainer}>
+                    <div className={styles.filterBox}>
+                        <p>filter here</p>
+                    </div>
+                    <div className={styles.blogGrid}>
+                        <div>
+                            {posts.map((post) => (
+                                <a>
+                                    <article key={post.Slug}>
+                                        <BlogBlock post={post} className={styles.blog} />
+                                    </article>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </main>
             <Footer />
         </div>
