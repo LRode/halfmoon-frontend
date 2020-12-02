@@ -10,13 +10,13 @@ export default function Posts({ posts }) {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Halfmoon Manga + Anime | Blog </title>
+                <title>Blog | Halfmoon Manga + Anime</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header activePage="Blog" />
             <main className={styles.main}>
                 <div >
-                    <PageTitle title='Products' url='/' />
+                    <PageTitle title='Blog' url='/' />
                 </div>
                 <div className={styles.blogContainer}>
                     <div className={styles.filterBox}>
@@ -26,9 +26,7 @@ export default function Posts({ posts }) {
                         <div>
                             {posts.map((post) => (
                                 <a>
-                                    <article key={post.Slug}>
-                                        <BlogBlock post={post} className={styles.blog} />
-                                    </article>
+                                    <BlogBlock key={post.Slug} post={post} className={styles.blog} />
                                 </a>
                             ))}
                         </div>
@@ -42,12 +40,12 @@ export default function Posts({ posts }) {
 
 // This function gets called at build time
 export async function getStaticProps() {
-    // Call an external API endpoint to get products
+    // Call an external API endpoint to get posts
     const res = await axios.get('/posts');
     const posts = res.data;
 
-    // By returning { props: products }, the Products component
-    // will receive `products` as a prop at build time
+    // By returning { props: posts }, the Posts component
+    // will receive `posts` as a prop at build time
     return {
         props: {
             posts,

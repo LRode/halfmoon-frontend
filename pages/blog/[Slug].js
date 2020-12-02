@@ -12,7 +12,7 @@ export default function Blog({ post }) {
   return (
     <div className={`${styles.container}`}>
       <Head>
-        <title>Halfmoon Manga + Anime | {post.Title} </title>
+        <title>{post.Title} | Halfmoon Manga + Anime</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header activePage="Blog" />
