@@ -1,0 +1,12 @@
+.btn {
+    width: 355px;
+    max-width: 100%;
+    height: auto;
+    background-color: white;
+    padding: 1em;
+    text-align: center;
+    font-weight: 500;
+    border: 4px solid #5CA2D5;
+    box-shadow: 10px 10px #5CA2D5;
+    text-transform: uppercase;
+}

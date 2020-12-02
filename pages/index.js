@@ -9,14 +9,14 @@ export default function Home({home}) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Halfmoon Manga + Anime</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Header activePage="Home"/>
 
       <main className={styles.main}>
-        <Hero data={home}></Hero>
+        <Hero data={home} />
       </main>
 
       <Footer/>
@@ -27,12 +27,12 @@ export default function Home({home}) {
 
 // This function gets called at build time
 export async function getStaticProps() {
-  // Call an external API endpoint to get products
+  // Call an external API endpoint to get Home data
   const res = await axios.get('/home');
   const home = res.data;
 
-  // By returning { props: products }, the Products component
-  // will receive `products` as a prop at build time
+  // By returning { props: home }, the Home component
+  // will receive `home` as a prop at build time
   return {
       props: {
           home,

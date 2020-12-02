@@ -25,9 +25,7 @@ export default function Posts({ posts }) {
                     <div className={styles.blogGrid}>
                         <div>
                             {posts.map((post) => (
-                                <a>
-                                    <BlogBlock key={post.Slug} post={post} className={styles.blog} />
-                                </a>
+                                <BlogBlock key={post.Slug} post={post} className={styles.blog} />
                             ))}
                         </div>
                     </div>
