@@ -6,12 +6,10 @@ export default function FullBlog({ post }) {
     return (
         <div className={styles.container}>
             <div className={styles.blog}>
-                <div className={styles.imgBox}>
-                    {post.FeaturedImage ? <img src={post.FeaturedImage.url} className={styles.img} /> : null}
-                </div>
+                {post.FeaturedImage ? <img src={post.FeaturedImage.url} className={styles.img} /> : null}
                 <div className={styles.textBox}>
                     <div>
-                        <h3>{post.Title}</h3>
+                        <h1 className={styles.postTitle}>{post.Title}</h1>
                     </div>
                     <div className={styles.date}>
                         <p>{post.Date} | {post.post_category.Name}</p>
@@ -20,8 +18,7 @@ export default function FullBlog({ post }) {
                         <hr className={styles.solid} />
                     </div>
                     <div className={styles.contentBlock}>
-                        <ReactMarkdown source={post.Content}
-                        />
+                        <ReactMarkdown source={post.Content} />
                     </div>
                 </div>
             </div>

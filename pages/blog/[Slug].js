@@ -17,8 +17,8 @@ export default function Blog({ post }) {
       </Head>
       <Header activePage="Blog" />
       <main className={styles.main}>
-        <div >
-          <PageTitle title={'Products'} url='/blog' />
+        <div>
+          <PageTitle title='Blog' />
         </div>
         <div className={styles.blogContainer}>
           <div className={styles.filterBox}>
@@ -28,7 +28,7 @@ export default function Blog({ post }) {
             <div className={styles.redirect}>
               <Link href="/blog">
                 <a>
-                  >Back to Blog
+                  {'>'}Back to Blog
                 </a>
               </Link>
             </div>

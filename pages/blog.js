@@ -16,7 +16,7 @@ export default function Posts({ posts }) {
             <Header activePage="Blog" />
             <main className={styles.main}>
                 <div >
-                    <PageTitle title='Blog' url='/' />
+                    <PageTitle title='Blog' />
                 </div>
                 <div className={styles.blogContainer}>
                     <div className={styles.filterBox}>
