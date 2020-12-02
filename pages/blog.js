@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Blogs.module.css'
 import axios from '../services/axios.config';
-
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 import BlogBlock from '../components/BlogBlock';
@@ -11,13 +10,13 @@ export default function Posts({ posts }) {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Halfmoon Manga + Anime | Blog </title>
+                <title>Blog | Halfmoon Manga + Anime</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header activePage="Blog" />
             <main className={styles.main}>
                 <div >
-                    <PageTitle title='Products' url='/' />
+                    <PageTitle title='Blog' />
                 </div>
                 <div className={styles.blogContainer}>
                     <div className={styles.filterBox}>
@@ -26,7 +25,9 @@ export default function Posts({ posts }) {
                     <div className={styles.blogGrid}>
                         <div>
                             {posts.map((post) => (
-                                <BlogBlock post={post} className={styles.blog} />
+                                <a>
+                                    <BlogBlock key={post.Slug} post={post} className={styles.blog} />
+                                </a>
                             ))}
                         </div>
                     </div>
@@ -39,7 +40,7 @@ export default function Posts({ posts }) {
 
 // This function gets called at build time
 export async function getStaticProps() {
-    // Call an external API endpoint to get products
+    // Call an external API endpoint to get posts
     const res = await axios.get('/posts');
     const posts = res.data;
 
@@ -51,3 +52,4 @@ export async function getStaticProps() {
         },
     }
 }
+
