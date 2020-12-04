@@ -4,6 +4,7 @@ import axios from '../services/axios.config';
 import Hero from '../components/Hero.js'
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
+import ContactSection from '../components/ContactSection.js';
 
 export default function Home({home}) {
   return (
@@ -17,6 +18,8 @@ export default function Home({home}) {
 
       <main className={styles.main}>
         <Hero data={home} />
+
+        <ContactSection/>
       </main>
 
       <Footer/>
