@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 
 import styles from '../styles/Header.module.css';
 import useOnClickOutside from '../hooks/useOnClickOutside.js';
+import SearchBar from './SearchBar';
 
 export default function Header({ activePage }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -51,8 +52,7 @@ export default function Header({ activePage }) {
                 {!isOpenSearch && <button className={styles.searchIcon} onClick={() => setIsOpenSearch(true)}></button>}
 
                 <div ref={navSearchRef} className={`${styles.navSearchContainer} ${isOpenSearch ? styles.open : ''}`}>
-                    <input type="search" name="search" placeholder="Search..." className={styles.searchInput} />
-                    <button type="submit" className={styles.formButton}></button>
+                    <SearchBar/>
                 </div>
             
                 <div ref={mobileNavMenuRef} className={`${styles.mobileNavMenu} ${isOpen ? styles.open : ''}`}>

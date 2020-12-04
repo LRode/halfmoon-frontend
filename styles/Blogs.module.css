@@ -16,22 +16,28 @@
 
 .blogContainer {
     display: flex;
+    width: 100%;
     flex-direction: row;
     padding: 0 2rem;
 }
 
 .blogGrid {
     display: flex;
+    width:100%;
     flex-grow: 1;
     flex-direction: column;
-    width:75%;
+    align-items: center;   
+}
+
+.blog {
     max-width: 1000px;
 }
 
 .filterBox {
     display: flex;
     width:25%;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;  
 }
 
 @media (max-width: 768px) {

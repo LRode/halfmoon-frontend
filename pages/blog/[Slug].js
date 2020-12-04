@@ -25,14 +25,14 @@ export default function Blog({ post }) {
             <p>filter here</p>
           </div>
           <div className={styles.blogGrid}>
-            <div className={styles.redirect}>
-              <Link href="/blog">
-                <a>
-                  {'>'}Back to Blog
-                </a>
-              </Link>
-            </div>
             <div className={styles.blog}>
+              <div className={styles.redirect}>
+                <Link href="/blog">
+                  <a>
+                    {'>'}Back to Blog
+                </a>
+                </Link>
+              </div>
               <Blog_ post={post} />
             </div>
           </div>

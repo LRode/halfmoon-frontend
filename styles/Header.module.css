@@ -41,7 +41,6 @@
     flex: 1;
 }
 
-
 .navSearchContainer {
   width: 300px;
   display: flex;
@@ -50,30 +49,6 @@
 .navSearchContainer.open {
   right: 0;
 }
-
-.searchInput {
-  display: block;
-  width: 100%;
-  padding: 10px 15px;
-  border: 1px solid #aaaaaa;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-.formButton{
-  width: 45px;
-  height: 37px;
-  cursor: pointer;
-  background-image: url(/magnifying-glass.svg);
-  background-color: #ffffff;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 40%;
-  border: 1px solid #aaaaaa;
-  border-left: none;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-} 
 
 .menuIcon {
     width: 40px;
