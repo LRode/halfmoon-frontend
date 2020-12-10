@@ -50,7 +50,7 @@ export default function Footer() {
                         <Link href="/"><a>Home</a></Link>
                         <Link href="/products"><a>Products</a></Link>
                         <Link href="/blog"><a>Blog</a></Link>
-                        <Link href="mailto:info@animanga.me"><a>Contact Us</a></Link>
+                        <Link href="/#contact"><a>Contact Us</a></Link>
 
                     </div>
 

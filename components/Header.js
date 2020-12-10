@@ -40,7 +40,7 @@ export default function Header({ activePage }) {
                             Blog
                         </a>
                     </Link>
-                    <Link href="/blog">
+                    <Link href="/#contact">
                         <a className={`${styles.links} ${activePage === 'Contact Us' ? styles.activeLink : ''}`}>
                             Contact Us
                         </a>
@@ -71,7 +71,7 @@ export default function Header({ activePage }) {
                             Blogs
                         </a>
                     </Link>
-                    <Link href="/blog">
+                    <Link href="/#contact">
                         <a className={`${styles.linksNav} ${activePage === 'Contact Us' ? styles.activeLinkNav : ''}`}>
                             Contact Us
                         </a>

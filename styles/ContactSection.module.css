@@ -71,7 +71,7 @@
     display: flex;
 }
 
-.addressContainer p{
+.addressContainer p {
     margin-top: 0;
 }
 
@@ -100,11 +100,14 @@
 }
 
 @media (max-width: 1140px) {
-
     .main {
         flex-direction: column;
         flex-wrap: wrap;
         height: auto;
+    }
+
+    .contactContainer {
+        width: 100%;
     }
 
     .contactBox {
