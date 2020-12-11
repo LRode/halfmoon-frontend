@@ -17,9 +17,8 @@ export default function Blog({ post }) {
       </Head>
       <Header activePage="Blog" />
       <main className={styles.main}>
-        <div>
-          <PageTitle title='Blog' />
-        </div>
+        {/* Use h2 here since we want the Blog's title to be the main h1 */}
+        <PageTitle title='Blog' tag="h2" />
         <div className={styles.blogContainer}>
           <div className={styles.filterBox}>
             <p>filter here</p>
