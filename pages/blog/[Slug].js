@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router'
+
 import styles from '../../styles/Blog.module.css';
 import axios from '../../services/axios.config';
 
@@ -7,8 +9,11 @@ import Header from '../../components/Header.js';
 import Footer from '../../components/Footer.js';
 import Blog_ from '../../components/FullBlog.js';
 import PageTitle from '../../components/pageTitle.js';
+import Loading from '../../components/Loading';
 
 export default function Blog({ post }) {
+  const router = useRouter();
+
   return (
     <div className={`${styles.container}`}>
       <Head>
@@ -16,14 +21,14 @@ export default function Blog({ post }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header activePage="Blog" />
-      <main className={styles.main}>
+      <main className="main">
         {/* Use h2 here since we want the Blog's title to be the main h1 */}
         <PageTitle title='Blog' tag="h2" />
-        <div className={styles.blogContainer}>
-          <div className={styles.filterBox}>
+        <div className="filterAndContentContainer">
+          <div className="filterColumn">
             <p>filter here</p>
           </div>
-          <div className={styles.blogGrid}>
+          <div className="contentColumn">
             <div className={styles.redirect}>
               <Link href="/blog">
                 <a>
@@ -31,9 +36,13 @@ export default function Blog({ post }) {
                 </a>
               </Link>
             </div>
-            <div className={styles.blog}>
-              <Blog_ post={post} />
-            </div>
+            {
+              // If the page is not yet generated, this will be displayed
+              // initially until getStaticProps() finishes running
+              router.isFallback
+                ? (<div className={styles.loadingContainer}><Loading /></div>)
+                : (<Blog_ post={post} />)
+            }
           </div>
         </div>
       </main>
@@ -45,16 +54,19 @@ export default function Blog({ post }) {
 // This function gets called at build time
 export async function getStaticPaths() {
   // Call an external API endpoint to get products
-  const res = await axios.get('/posts');
+  // Default Strapi limit is 100 so increase that to ideally render generate all posts
+  const res = await axios.get('/posts?_limit=1000');
   const posts = res.data;
 
   // Get the paths we want to pre-render based on posts
   const paths = posts.map((post) => `/blog/${post.Slug}`);
-  console.log('Paths', paths);
 
   // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
+  // fallback: true means routes not generated at build time will be generated when visited
+  return {
+    paths,
+    fallback: true
+  };
 }
 
 // This also gets called at build time

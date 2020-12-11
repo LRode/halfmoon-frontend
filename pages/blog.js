@@ -12,8 +12,9 @@ import Footer from '../components/Footer.js';
 import BlogBlock from '../components/BlogBlock';
 import PageTitle from '../components/pageTitle';
 import Pagination from '../components/Pagination'
+import Loading from '../components/Loading.js';
 
-const PAGE_SIZE = 2;
+const PAGE_SIZE = 10;
 
 export default function Posts() {
     const router = useRouter();
@@ -33,20 +34,20 @@ export default function Posts() {
     const { data: posts, error } = useSWR(`/posts?_start=${start}&_limit=${PAGE_SIZE}&_sort=date:DESC`, fetcher);
 
     const handlePageClick = (selectedPage) => {
-        router.push(`/blog?page=${selectedPage}`, undefined, { shallow: true });
+        router.push(`/blog?page=${selectedPage}`, undefined, { shallow: true })
+            .then(() => window.scrollTo(0, 0));
     };
 
     const renderPosts = !posts
-        ? (<div className={styles.blogGrid}>Loading...</div>)
+        ? (<div className="contentColumn"><Loading /></div>)
         : (
-            <div className={styles.blogGrid}>
-                <div>
-                    {posts && posts.map((post) => (
-                        <BlogBlock key={post.Slug} post={post} className={styles.blog} />
-                    ))}
-                </div>
+            <div className="contentColumn">
+                {posts.length === 0 && <p>No posts found</p>}
+                {posts.map((post) => (
+                    <BlogBlock key={post.Slug} post={post} />
+                ))}
                 {
-                    totalPosts &&
+                    (totalPosts && totalPosts / PAGE_SIZE > 1) &&
                     <Pagination
                         currentPage={currentPage}
                         pageCount={Math.ceil(totalPosts / PAGE_SIZE)}
@@ -65,17 +66,15 @@ export default function Posts() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header activePage="Blog" />
-            <main className={styles.main}>
-                <div >
-                    <PageTitle title='Blog' />
-                </div>
-                <div className={styles.blogContainer}>
-                    <div className={styles.filterBox}>
+            <main className="main">
+                <PageTitle title='Blog' />
+                <div className="filterAndContentContainer">
+                    <div className="filterColumn">
                         <p>filter here</p>
                     </div>
                     {
                         error
-                            ? (<div className={styles.blogGrid}>There was a problem loading posts</div>)
+                            ? (<div className="contentColumn">There was a problem loading posts</div>)
                             : renderPosts
                     }
                 </div>
