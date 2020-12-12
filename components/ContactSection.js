@@ -9,7 +9,7 @@ export default function ContactSection() {
         <div id="contact" className={styles.container}>
             <div className={styles.main}>
                 <div className={styles.contactContainer}>
-                    <PageTitle title='Find Us' tag="h2" />
+                    <h2 className={styles.contactHeader}>Find Us</h2>
 
                     <div className={styles.contactBox}>
                         <div className={styles.content}>
