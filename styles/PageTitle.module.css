@@ -37,3 +37,11 @@
         justify-content: center;
     }
 }
+
+@media (max-width: 767px) {
+    .titleBox {
+        padding: 0 45px;
+    }
+}
+
+

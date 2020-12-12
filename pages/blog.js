@@ -13,6 +13,7 @@ import BlogBlock from '../components/BlogBlock';
 import PageTitle from '../components/pageTitle';
 import Pagination from '../components/Pagination'
 import Loading from '../components/Loading.js';
+import CategoriesFilter from '../components/CategoriesFilter.js';
 
 const PAGE_SIZE = 10;
 
@@ -25,13 +26,18 @@ export default function Posts() {
         // Renders as page 1, but is indexed at 0
         currentPage = queryValue - 1;
     }
+    let categoryQueryValue = getQueryParam(router, 'category');
 
     // get total number of posts so we can lay out proper pagination
-    const { data: totalPosts } = useSWR(`/posts/count`, fetcher);
+    const { data: totalPosts } = useSWR(`/posts/count${categoryQueryValue ? `?post_category=${categoryQueryValue}` : ''}`, fetcher);
+
+    const { data: categories } = useSWR(`/post-categories`, fetcher);
 
     // use PAGE_SIZE and the current page to figure out which element we should start getting results from
     const start = PAGE_SIZE * currentPage;
-    const { data: posts, error } = useSWR(`/posts?_start=${start}&_limit=${PAGE_SIZE}&_sort=date:DESC`, fetcher);
+    const { data: posts, error } = useSWR(
+        `/posts?_start=${start}&_limit=${PAGE_SIZE}&_sort=date:DESC${categoryQueryValue ? `&post_category_eq=${categoryQueryValue}` : ''}`,
+        fetcher);
 
     const handlePageClick = (selectedPage) => {
         router.push(`/blog?page=${selectedPage}`, undefined, { shallow: true })
@@ -42,7 +48,7 @@ export default function Posts() {
         ? (<div className="contentColumn"><Loading /></div>)
         : (
             <div className="contentColumn">
-                {posts.length === 0 && <p>No posts found</p>}
+                {posts.length === 0 && <p className="noResultsFound">No posts found</p>}
                 {posts.map((post) => (
                     <BlogBlock key={post.Slug} post={post} />
                 ))}
@@ -70,7 +76,16 @@ export default function Posts() {
                 <PageTitle title='Blog' />
                 <div className="filterAndContentContainer">
                     <div className="filterColumn">
-                        <p>filter here</p>
+                        <CategoriesFilter
+                            headerText="Categories"
+                            categories={categories}
+                            activeCategoryId={categoryQueryValue}
+                            hrefBuilder={(categoryId) => {
+                                if (!categoryId) {
+                                    return `/blog`;
+                                }
+                                return `/blog?category=${categoryId}`;
+                            }} />
                     </div>
                     {
                         error

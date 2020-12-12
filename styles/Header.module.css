@@ -157,12 +157,11 @@
   padding: 25px 15px;
   text-decoration: none;
   color: black;
+  font-weight: 600;
 }
 
 .activeLinkNav {
   color: #5CA2D5;
-  text-decoration: underline;
-  font-weight: bold;
 }
 
 

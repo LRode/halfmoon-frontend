@@ -5,14 +5,14 @@ import styles from '../styles/ProductBlock.module.css';
 export default function ProductBlock({ product }) {
     return (
         <Link href={`/products/${product.id}`}>
-            <article className={styles.block}>
-                <a>
+            <a className={styles.block}>
+                <article>
                     {
                         product.Image
                             ? (
                                 <img src={product.Image.url} className={styles.productImage} />
                             )
-                            : <img src="/heroImage.jpg" className={styles.productImage} />
+                            : <img src="/productPlaceholder.png" className={styles.productImage} />
                     }
                     <div className={styles.productTextContainer}>
                         <h3 className={styles.productName}>
@@ -22,11 +22,18 @@ export default function ProductBlock({ product }) {
                             {product.category && product.category.Name}
                         </div>
                         <div className={styles.productPrice}>
-                            {product.Price}
+                            {
+                                (product.onSale && product.SalePrice) &&
+                                <span className={styles.salePrice}>${Number.parseFloat(product.SalePrice).toFixed(2)}</span>
+                            }
+                            <span className={styles.originalPrice}>
+                                ${product.Price && Number.parseFloat(product.Price).toFixed(2)}
+                            </span>
                         </div>
                     </div>
-                </a>
-            </article>
+                </article>
+            </a>
+
         </Link>
     )
 }
