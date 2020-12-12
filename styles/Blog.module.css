@@ -6,13 +6,6 @@
     align-items: center;
 }
 
-.titleBox {
-    padding: 3rem 0rem 0 0;
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-}
-
 .redirect {
     color: #5CA2D5;
     text-decoration: underline;

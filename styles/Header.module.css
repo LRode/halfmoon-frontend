@@ -19,11 +19,11 @@
     padding: 10px 15px;
     text-decoration: none;
     color: black;
+    font-weight: 600;
 }
 
 .activeLink {
     color: #5CA2D5;
-    text-decoration: underline;
     font-weight: bold;
 }
 
