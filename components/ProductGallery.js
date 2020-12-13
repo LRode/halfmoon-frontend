@@ -8,7 +8,7 @@ export default function ProductGallery({ products }) {
 
     return (
         
-        <div id="contact" className={styles.container}>
+        <div className={styles.container}>
             <div className={styles.main}>
                 <PageTitle title="Latest Products" />
                 <div className={styles.productsGrid}>
@@ -18,7 +18,7 @@ export default function ProductGallery({ products }) {
                     ))}
                 </div>
                 <CTAButton href="/products">
-                    View More Products
+                    view all products
                     </CTAButton>
             </div>
         </div>

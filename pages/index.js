@@ -6,6 +6,7 @@ import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 import ContactSection from '../components/ContactSection.js';
 import ProductsGallery from '../components/ProductGallery.js'
+import PostsGallery from '../components/PostsGallery.js'
 
 export default function Home({home,products,blogs}) {
   return (
@@ -21,6 +22,8 @@ export default function Home({home,products,blogs}) {
         <Hero data={home} />
 
         <ProductsGallery products={products}/>
+
+        <PostsGallery posts={blogs}/>
 
         <ContactSection/>
       </main>
