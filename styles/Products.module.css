@@ -1,17 +1,29 @@
 .container {
     min-height: 100vh;
-    padding: 0 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.main {
-    padding: 5rem 0;
-    flex: 1;
+.productsMessage {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+    max-width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 5rem;
+}
+
+.productsMessage a {
+    color: #18A0FB;
+}
+
+.productsGrid {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }

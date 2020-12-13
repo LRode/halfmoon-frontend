@@ -47,10 +47,10 @@ export default function Footer() {
 
                     <div className={styles.navBox}>
 
-                        <a href="/">Home</a>
-                        <a href="/products">Products</a>
-                        <a href="/blog">Blog</a>
-                        <a href="mailto:info@animanga.me">Contact Us</a>
+                        <Link href="/"><a>Home</a></Link>
+                        <Link href="/products"><a>Products</a></Link>
+                        <Link href="/blog"><a>Blog</a></Link>
+                        <Link href="/#contact"><a>Contact Us</a></Link>
 
                     </div>
 

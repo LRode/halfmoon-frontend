@@ -1,5 +1,7 @@
-import Head from 'next/head'
-import styles from '../../styles/Products.module.css'
+import Head from 'next/head';
+
+import styles from '../../styles/Products.module.css';
+
 import axios from '../../services/axios.config';
 
 import Header from '../../components/Header.js';
@@ -9,13 +11,13 @@ export default function Product({ product }) {
     return (
       <div className={`${styles.container}`}>
         <Head>
-          <title>Halfmoon Manga + Anime | {product.Title} </title>
+          <title>{product.Name} | Halfmoon Manga + Anime </title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
   
         <Header activePage="Products" />
-        <main className={styles.main}>
-          {product.Title}
+        <main className="main">
+          {product.Name}
         </main>
         <Footer />
       </div>
@@ -29,12 +31,11 @@ export async function getStaticPaths() {
     const products = res.data;
   
     // Get the paths we want to pre-render based on posts
-    console.log('Paths', products);
     const paths = products.map((product) => `/products/${product.id}`);
   
     // We'll pre-render only these paths at build time.
     // { fallback: false } means other routes should 404.
-    return { paths, fallback: false }
+    return { paths, fallback: true }
   }
 
 // This also gets called at build time

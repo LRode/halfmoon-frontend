@@ -37,10 +37,10 @@ export default function Header({ activePage }) {
                     </Link>
                     <Link href="/blog">
                         <a className={`${styles.links} ${activePage === 'Blog' ? styles.activeLink : ''}`}>
-                            Blogs
+                            Blog
                         </a>
                     </Link>
-                    <Link href="/blog">
+                    <Link href="/#contact">
                         <a className={`${styles.links} ${activePage === 'Contact Us' ? styles.activeLink : ''}`}>
                             Contact Us
                         </a>
@@ -68,10 +68,10 @@ export default function Header({ activePage }) {
                     </Link>
                     <Link href="/blog">
                         <a className={`${styles.linksNav} ${activePage === 'Blog' ? styles.activeLinkNav : ''}`}>
-                            Blogs
+                            Blog
                         </a>
                     </Link>
-                    <Link href="/blog">
+                    <Link href="/#contact">
                         <a className={`${styles.linksNav} ${activePage === 'Contact Us' ? styles.activeLinkNav : ''}`}>
                             Contact Us
                         </a>

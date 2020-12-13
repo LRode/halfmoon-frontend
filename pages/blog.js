@@ -1,48 +1,100 @@
-import Head from 'next/head'
-import styles from '../styles/Products.module.css'
-import axios from '../services/axios.config';
-import Link from 'next/link';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
+
+import fetcher from '../services/fetcher.js';
+import getQueryParam from '../services/getQueryParam.js';
+
+import styles from '../styles/Blogs.module.css'
 
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
+import BlogBlock from '../components/BlogBlock';
+import PageTitle from '../components/pageTitle';
+import Pagination from '../components/Pagination'
+import Loading from '../components/Loading.js';
+import CategoriesFilter from '../components/CategoriesFilter.js';
 
-export default function Products({ products }) {
+const PAGE_SIZE = 10;
+
+export default function Posts() {
+    const router = useRouter();
+    let currentPage = 0;
+    let queryValue = getQueryParam(router, 'page');
+    if (queryValue) {
+        // Pagination component expects page 1 to actually be page 0.
+        // Renders as page 1, but is indexed at 0
+        currentPage = queryValue - 1;
+    }
+    let categoryQueryValue = getQueryParam(router, 'category');
+
+    // get total number of posts so we can lay out proper pagination
+    const { data: totalPosts } = useSWR(`/posts/count${categoryQueryValue ? `?post_category=${categoryQueryValue}` : ''}`, fetcher);
+
+    const { data: categories } = useSWR(`/post-categories`, fetcher);
+
+    // use PAGE_SIZE and the current page to figure out which element we should start getting results from
+    const start = PAGE_SIZE * currentPage;
+    const { data: posts, error } = useSWR(
+        `/posts?_start=${start}&_limit=${PAGE_SIZE}&_sort=date:DESC${categoryQueryValue ? `&post_category_eq=${categoryQueryValue}` : ''}`,
+        fetcher);
+
+    const handlePageClick = (selectedPage) => {
+        router.push(`/blog?page=${selectedPage}`, undefined, { shallow: true })
+            .then(() => window.scrollTo(0, 0));
+    };
+
+    const renderPosts = !posts
+        ? (<div className="contentColumn"><Loading /></div>)
+        : (
+            <div className="contentColumn">
+                {posts.length === 0 && <p className="noResultsFound">No posts found</p>}
+                {posts.map((post) => (
+                    <BlogBlock key={post.Slug} post={post} />
+                ))}
+                {
+                    (totalPosts && totalPosts / PAGE_SIZE > 1) &&
+                    <Pagination
+                        currentPage={currentPage}
+                        pageCount={Math.ceil(totalPosts / PAGE_SIZE)}
+                        handlePageClick={(page) => {
+                            handlePageClick(parseInt(page.selected, 10) + 1);
+                        }}
+                        hrefBuilder={(pageNum) => `/blog?page=${pageNum}`} />
+                }
+            </div>
+        );
+
     return (
-        <div className={`${styles.container}`}>
+        <div className={styles.container}>
             <Head>
-                <title>Halfmoon Manga + Anime | Blog </title>
+                <title>Blog | Halfmoon Manga + Anime</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
             <Header activePage="Blog" />
-
-            <main className={styles.main}>
-                {products.map((product) => (
-                    <Link href={`/products/${product.id}`}>
-                        <a>
-                            <article key={product.id}>
-                                {product.Title}
-                            </article>
-                        </a>
-                    </Link>
-                ))}
+            <main className="main">
+                <PageTitle title='Blog' />
+                <div className="filterAndContentContainer">
+                    <div className="filterColumn">
+                        <CategoriesFilter
+                            headerText="Categories"
+                            categories={categories}
+                            activeCategoryId={categoryQueryValue}
+                            hrefBuilder={(categoryId) => {
+                                if (!categoryId) {
+                                    return `/blog`;
+                                }
+                                return `/blog?category=${categoryId}`;
+                            }} />
+                    </div>
+                    {
+                        error
+                            ? (<div className="contentColumn">There was a problem loading posts</div>)
+                            : renderPosts
+                    }
+                </div>
             </main>
             <Footer />
         </div>
     )
-}
-
-// This function gets called at build time
-export async function getStaticProps() {
-    // Call an external API endpoint to get products
-    const res = await axios.get('/products');
-    const products = res.data;
-
-    // By returning { props: products }, the Products component
-    // will receive `products` as a prop at build time
-    return {
-        props: {
-            products,
-        },
-    }
 }

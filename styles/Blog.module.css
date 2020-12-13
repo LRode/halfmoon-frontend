@@ -1,0 +1,30 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.redirect {
+    color: #5CA2D5;
+    text-decoration: underline;
+    width: 90%;
+    align-self: center; 
+    padding-bottom: 25px;
+}
+
+.loadingContainer {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 768px) {
+    .redirect {
+        width: 100%;
+        text-align: center;
+    }
+}
