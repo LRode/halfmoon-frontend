@@ -7,12 +7,14 @@ import CTAButton from '../components/CTAButton.js';
 export default function ProductGallery({ products }) {
 
     return (
+        
         <div id="contact" className={styles.container}>
             <div className={styles.main}>
                 <PageTitle title="Latest Products" />
                 <div className={styles.productsGrid}>
-                    {products.map((product) => (
+                    {products.slice(-8).reverse().map((product) => (
                         <ProductBlock key={product.id} product={product} />
+                        
                     ))}
                 </div>
                 <CTAButton href="/products">
