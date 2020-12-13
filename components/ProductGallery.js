@@ -1,0 +1,24 @@
+import styles from '../styles/ProductGallery.module.css';
+import ProductBlock from '../components/ProductBlock.js'
+import PageTitle from '../components/pageTitle.js'
+import React from "react";
+import CTAButton from '../components/CTAButton.js';
+
+export default function ProductGallery({ products }) {
+
+    return (
+        <div id="contact" className={styles.container}>
+            <div className={styles.main}>
+                <PageTitle title="Latest Products" />
+                <div className={styles.productsGrid}>
+                    {products.map((product) => (
+                        <ProductBlock key={product.id} product={product} />
+                    ))}
+                </div>
+                <CTAButton href="/products">
+                    View More Products
+                    </CTAButton>
+            </div>
+        </div>
+    )
+}

@@ -5,8 +5,9 @@ import Hero from '../components/Hero.js'
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 import ContactSection from '../components/ContactSection.js';
+import ProductsGallery from '../components/ProductGallery.js'
 
-export default function Home({home}) {
+export default function Home({home,products,blogs}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -18,6 +19,8 @@ export default function Home({home}) {
 
       <main className={styles.main}>
         <Hero data={home} />
+
+        <ProductsGallery products={products}/>
 
         <ContactSection/>
       </main>
@@ -31,14 +34,20 @@ export default function Home({home}) {
 // This function gets called at build time
 export async function getStaticProps() {
   // Call an external API endpoint to get Home data
-  const res = await axios.get('/home');
-  const home = res.data;
+  const [home, products, blogs] = await Promise.all([
+    axios.get('/home').then(r => r.data),
+    axios.get('/products').then(r => r.data),
+    axios.get('/posts').then(r => r.data)
+])
+
 
   // By returning { props: home }, the Home component
   // will receive `home` as a prop at build time
   return {
       props: {
           home,
+          products,
+          blogs
       },
   }
 }

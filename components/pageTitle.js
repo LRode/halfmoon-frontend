@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import styles from '../styles/PageTitle.module.css';
 
-
 export default function PageTitle({ title, tag = 'h1' }) {
     const HeaderTag = tag;
     return (

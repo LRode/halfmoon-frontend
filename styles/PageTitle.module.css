@@ -10,7 +10,6 @@
 
 .titleBox {
     width: auto;
-    padding: 0 60px;
     background-image: linear-gradient(to bottom, 
     transparent 65%, #94C7E7 65% 100%, transparent 100%);
 }
@@ -22,6 +21,7 @@
     margin-bottom: 0;
     line-height: 1.2;
     font-weight: 600;
+    padding: 0 25px;
 }
 
 .moon {
@@ -38,10 +38,5 @@
     }
 }
 
-@media (max-width: 767px) {
-    .titleBox {
-        padding: 0 45px;
-    }
-}
 
 
