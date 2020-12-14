@@ -17,7 +17,42 @@ export default function Product({ product }) {
   
         <Header activePage="Products" />
         <main className="main">
-          {product.Name}
+          <div>
+        {
+                        product.Image
+                            ? (
+                                <img src={product.Image.url} className={styles.productImage} />
+                            )
+                            : <img src="/productPlaceholder.png" className={styles.productImage} />
+                    }
+          <div>
+          <h2>{product.Name}</h2>
+          <div>{product.SecondaryName}</div>
+          <div>{product.Category}
+          
+          <div className={styles.productPrice}>
+                            {
+                                (product.onSale && product.SalePrice) &&
+                                <span className={styles.salePrice}>${Number.parseFloat(product.SalePrice).toFixed(2)}</span>
+                            }
+                            <span className={styles.originalPrice}>
+                                ${product.Price && Number.parseFloat(product.Price).toFixed(2)}
+                            </span>
+                            </div>
+
+          </div>
+          <hr></hr>
+          <h4>Series</h4>
+          <div>{product.SeriesName} {product.SeriesNameAlternate}</div>
+          <h4>Author</h4>
+          <div>{product.Author} {product.AuthorAlternate}</div>
+          <h4>Publisher</h4>
+          <div>{product.Publisher}{product.PublisherAlternate}</div>
+          </div>
+
+          <h3>Description</h3>
+          <div>{product.Description}</div>
+          </div>
         </main>
         <Footer />
       </div>
