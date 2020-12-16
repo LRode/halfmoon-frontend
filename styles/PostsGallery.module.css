@@ -37,11 +37,11 @@
     justify-content: flex-end;
     align-items: center;
     width: 50%;
-    padding: 15px;
+    padding: 0 15px;
 }
 
 .img {
-    width: 85%;
+    width: 90%;
     height: 85%;
     box-shadow: 10px 10px #5CA2D5;
     background-image: url("../public/storeManga.jpg");
