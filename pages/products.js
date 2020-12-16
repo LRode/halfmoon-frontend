@@ -10,6 +10,11 @@ import getQueryParam from '../services/getQueryParam.js';
 
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
+<<<<<<< HEAD
+import Dropdown from '../components/Dropdown.js';
+import Accordion from '../components/Accordion';
+import Checklist from '../components/Checklist';
+=======
 import ProductBlock from '../components/ProductBlock';
 import PageTitle from '../components/pageTitle';
 import Pagination from '../components/Pagination'
@@ -68,6 +73,7 @@ export default function Products() {
                 }
             </div>
         );
+>>>>>>> d880f3190d2e6f963437a70ba536769bcb2f65fa
 
     return (
         <div className={styles.container}>
@@ -76,6 +82,20 @@ export default function Products() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header activePage="Products" />
+<<<<<<< HEAD
+            <main className={styles.main}>
+                <Accordion accordionTitle="Category" accordionContent={<Checklist menuItems={["1", "2", "3"]} menuName="Test"/>}/>
+                <Dropdown sortOptions={["Newest", "Oldest", "Alphabetical"]} sortId="productSort"/>
+                {products.map((product) => (
+                    <Link href={`/products/${product.id}`}>
+                        <a>
+                            <article key={product.id}>
+                                {product.Title}
+                            </article>
+                        </a>
+                    </Link>
+                ))}
+=======
             <main className="main">
                 <PageTitle title='Products' />
                 <p className={styles.productsMessage}>
@@ -101,7 +121,9 @@ export default function Products() {
                             : renderProducts
                     }
                 </div>
+>>>>>>> d880f3190d2e6f963437a70ba536769bcb2f65fa
             </main>
+            
             <Footer />
         </div>
     )
