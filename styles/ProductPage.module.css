@@ -1,0 +1,61 @@
+.block {
+  width: 100%;
+  height: 500px;
+  margin-bottom: 25px;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+} 
+
+.productImage {
+    height: 500px;
+    margin: auto;
+    margin-right: 100px;
+  }
+
+  .productPrice {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .productDetails {
+    width: 20%;
+    margin: auto;
+    margin-left: 100px;
+  }
+
+  .description {
+    width: 65%;
+    margin: auto;
+    margin-top: 50px;
+  }
+  
+  .salePrice {
+    color: #ff0000;
+    margin-right: 10px;
+  }
+  
+  .salePrice ~ .originalPrice {
+    text-decoration: line-through;
+  }
+
+  .links{
+    display: block;
+    width: 65%;
+    color: #5CA2D5;
+    font-weight: bold;
+    margin: auto;
+  }
+
+  .links:hover {
+    text-decoration: underline;
+  }
+
+  .loadingContainer {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
