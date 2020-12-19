@@ -12,7 +12,7 @@ export default function ProductGallery({ products }) {
             <div className={styles.main}>
                 <PageTitle title="Latest Products" />
                 <div className={styles.productsGrid}>
-                    {products.slice(-8).reverse().map((product) => (
+                    {products.slice(-8).map((product) => (
                         <ProductBlock key={product.id} product={product} />
                         
                     ))}

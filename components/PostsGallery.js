@@ -12,7 +12,7 @@ export default function PostsGallery({ posts }) {
                 <PageTitle title="Latest Posts" />
                 <div className={styles.postBox}>
                     <div className={styles.contentColumn}>
-                        {posts.slice(-3).reverse().map((post) => (
+                        {posts.slice(-3).map((post) => (
                             <BlogBlock key={post.Slug} post={post} />
                         ))}
                     </div>
@@ -24,7 +24,7 @@ export default function PostsGallery({ posts }) {
 
                 <CTAButton href="/blog" className={styles.CTAbutton}>
                     view all posts
-                    </CTAButton>
+                </CTAButton>
             </div>
         </div>
     )

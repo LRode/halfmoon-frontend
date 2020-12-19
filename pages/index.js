@@ -21,10 +21,12 @@ export default function Home({ home, products, blogs }) {
       <Header activePage="Home" />
       <main className={styles.main}>
         <Hero data={home} />
-        {home.CovidAlert ? <CovidAlert data={home} /> : null}
-        <About data={home} />
-        <ProductsGallery products={products} />
-        <PostsGallery posts={blogs} />
+        <div className={styles.homeContentContainer}>
+          {home.CovidAlert ? <CovidAlert data={home} /> : null}
+          <About data={home} />
+          <ProductsGallery products={products} />
+          <PostsGallery posts={blogs} />
+        </div>
         <ContactSection />
       </main>
       <Footer />
@@ -37,8 +39,8 @@ export async function getStaticProps() {
   // Call an external API endpoint to get Home data
   const [home, products, blogs] = await Promise.all([
     axios.get('/home').then(r => r.data),
-    axios.get('/products').then(r => r.data),
-    axios.get('/posts').then(r => r.data)
+    axios.get('/products?_sort=updated_at:DESC&_limit=8').then(r => r.data),
+    axios.get('/posts?_sort=updated_at:DESC&_limit=3').then(r => r.data)
   ])
 
   // By returning { props: home }, the Home component

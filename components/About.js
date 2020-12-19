@@ -8,9 +8,9 @@ export default function About({ data }) {
     return (
         <div className={styles.container}>
             <div className={styles.main}>
-                <PageTitle title='About'/>
+                <PageTitle title='About' tag="h2" />
                 <div className={styles.about}>
-                    <p className={styles.about__description}><ReactMarkdown source={data.AboutDescription} /></p>
+                    <div className={styles.about__description}><ReactMarkdown source={data.AboutDescription} /></div>
                     <img src='/sparkleMoon.svg' className={styles.moon} />
                 </div>
                 <div className={styles.firstPhoto}>
@@ -20,10 +20,10 @@ export default function About({ data }) {
                     <img src='/storePhoto2.jpg' className={styles.storePhoto2} />
                 </div>
                 <div className={styles.consignment}>
-                    <p className={styles.consignment__description}>
-                        <h2>We Sell For You!</h2>
+                    <div className={styles.consignment__description}>
+                        <h3 className={styles.consignment__header}>We Sell For You!</h3>
                         <ReactMarkdown source={data.ConsignmentDescription}/>
-                    </p>
+                    </div>
                     <img src='/sparkleBunny.svg' className={styles.bunny} />
                 </div>
             </div>

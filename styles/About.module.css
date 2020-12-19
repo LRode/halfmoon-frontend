@@ -7,7 +7,7 @@
 .main {
     display: flex;
     flex-direction: column;
-    padding: 50px 50px 15px 50px;
+    padding: 50px 0;
     width: 100%;
     height: auto;
 }
@@ -18,16 +18,21 @@
     width: 100%;
     height:auto;
     position: relative;
+    margin-top: 30px;
 }
 
 .about__description {
     margin-top:75px;
-    font-size: 25px;
-    padding: 25px;
-    width:55%;
+    font-size: 20px;
+    padding: 30px;
+    width: 55%;
     border: 4px solid #5CA2D5;
     background-color: white;
     z-index: 3;
+}
+
+.about__description p {
+    margin-bottom: 35px;
 }
 
 .moon {
@@ -47,6 +52,7 @@
 .storePhoto1 {
     height: 425px;
     width: 48%;
+    object-fit: cover;
     box-shadow: 15px 15px #5CA2D5;
     z-index: 4;
     margin-top: -125px;
@@ -56,10 +62,11 @@
 
 .secondPhoto {
     display: flex;
-    margin-top: 50px;
+    object-fit: cover;
+    margin-top: 150px;
     justify-content: flex-start;
     width: 100%;
-    height:auto;
+    height: auto;
 }
 
 .storePhoto2 {
@@ -79,11 +86,15 @@
     position: relative;
 }
 
+.consignment__header  {
+    font-size: 25px;
+}
+
 .consignment__description {
     margin: 0px;
-    font-size: 25px;
-    padding: 25px;
-    width:60%;
+    font-size: 20px;
+    padding: 30px;
+    width: 60%;
     border: 4px solid #5CA2D5;
     background-color: white;
     box-shadow: 15px 15px #5CA2D5;
@@ -113,7 +124,7 @@
         box-shadow: 10px 10px #5CA2D5;
         text-align: center;
         margin-top:75px;
-        font-size: 18px;
+        font-size: 16px;
         padding: 15px;
         width:100%;
     }
@@ -131,7 +142,7 @@
     .consignment__description {
         box-shadow: 10px 10px #5CA2D5;
         margin: 0px;
-        font-size: 18px;
+        font-size: 16px;
         padding: 15px;
         width:100%;
     }
