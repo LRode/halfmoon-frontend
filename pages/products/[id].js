@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link'
 import styles from '../../styles/ProductPage.module.css';
 import { useRouter } from 'next/router'
+import ReactMarkdown from "react-markdown";
 
 import axios from '../../services/axios.config';
 
@@ -76,7 +77,7 @@ export default function Product({ product }) {
               <div className={styles.description}>
                 <h3>Description</h3>
                 <div>
-                  {product.Description}
+                  <ReactMarkdown source={product.Description} />
                 </div>
               </div>
             </div>)
