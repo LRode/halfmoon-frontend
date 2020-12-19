@@ -25,9 +25,6 @@ export default function Blog({ post }) {
         {/* Use h2 here since we want the Blog's title to be the main h1 */}
         <PageTitle title='Blog' tag="h2" />
         <div className="filterAndContentContainer">
-          <div className="filterColumn">
-            <p>filter here</p>
-          </div>
           <div className="contentColumn">
             <div className={styles.redirect}>
               <Link href="/blog">

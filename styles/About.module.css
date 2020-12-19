@@ -1,0 +1,159 @@
+.container {
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0;
+    width: 100%;
+    height: auto;
+}
+
+.about {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height:auto;
+    position: relative;
+    margin-top: 30px;
+}
+
+.about__description {
+    margin-top:75px;
+    font-size: 20px;
+    padding: 30px;
+    width: 55%;
+    border: 4px solid #5CA2D5;
+    background-color: white;
+    z-index: 3;
+}
+
+.about__description p {
+    margin-bottom: 35px;
+}
+
+.moon {
+    height: 250px;
+    left: 50%;
+    position: absolute;
+    z-index: 2;
+}
+
+.firstPhoto {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height:auto;
+}
+
+.storePhoto1 {
+    height: 425px;
+    width: 48%;
+    object-fit: cover;
+    box-shadow: 15px 15px #5CA2D5;
+    z-index: 4;
+    margin-top: -125px;
+    margin-right: 15px;
+    border: 4px solid #5CA2D5;
+}
+
+.secondPhoto {
+    display: flex;
+    object-fit: cover;
+    margin-top: 150px;
+    justify-content: flex-start;
+    width: 100%;
+    height: auto;
+}
+
+.storePhoto2 {
+    height: 425px;
+    width: 50%;
+    border: 4px solid #5CA2D5;
+    box-shadow: 15px 15px #5CA2D5;
+}
+
+.consignment {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    margin-top:-150px;
+    height:auto;
+    position: relative;
+}
+
+.consignment__header  {
+    font-size: 25px;
+}
+
+.consignment__description {
+    margin: 0px;
+    font-size: 20px;
+    padding: 30px;
+    width: 60%;
+    border: 4px solid #5CA2D5;
+    background-color: white;
+    box-shadow: 15px 15px #5CA2D5;
+    z-index: 3;
+}
+
+.bunny {
+    height: 250px;
+    top: -210px;
+    right: 5%;
+    position: absolute;
+    z-index: 2;
+}
+
+@media (max-width: 850px){
+    .main {
+        padding: 50px 16px 15px 16px;
+    }
+
+    .moon {
+        height: 150px;
+        top: -25px;
+        left: 5%;
+    }
+
+    .about__description {
+        box-shadow: 10px 10px #5CA2D5;
+        text-align: center;
+        margin-top:75px;
+        font-size: 16px;
+        padding: 15px;
+        width:100%;
+    }
+
+    .firstPhoto {
+        display: none;
+    }
+    
+    .consignment {
+        text-align: center;
+        width: 100%;
+        margin-top:175px;
+    }
+    
+    .consignment__description {
+        box-shadow: 10px 10px #5CA2D5;
+        margin: 0px;
+        font-size: 16px;
+        padding: 15px;
+        width:100%;
+    }
+    
+    .bunny {
+        top: -150px;
+        height: 175px;
+    }
+
+    .secondPhoto {
+        display: none;
+    }
+
+}
