@@ -25,13 +25,13 @@ export default function Blog({ post }) {
         <PageTitle title='Blog' tag="h2" />
         <div className="filterAndContentContainer">
           <div className="contentColumn">
-            <div className={styles.redirect}>
+            {/* <div className={styles.redirect}>
               <Link href="/blog">
                 <a>
                   {'>'}Back to Blog
                 </a>
               </Link>
-            </div>
+            </div> */}
             {
               // If the page is not yet generated, this will be displayed
               // initially until getStaticProps() finishes running
