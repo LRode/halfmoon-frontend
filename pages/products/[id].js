@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Link from 'next/link'
+import Link from 'next/link';
 import styles from '../../styles/ProductPage.module.css';
 import { useRouter } from 'next/router'
 import ReactMarkdown from "react-markdown";
@@ -12,40 +12,33 @@ import Loading from '../../components/Loading';
 
 export default function Product({ product }) {
   const router = useRouter();
+
   return (
     <div className={`${styles.container}`}>
       <Head>
         <title>{product.Name} | Halfmoon Manga + Anime </title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Header activePage="Products" />
       <main className="main">
-        <div>
-          <Link href="/products">
-            <a className={styles.links}>
-              &lt; Back to Products
-              </a>
-          </Link>
-        </div>
         {
           // If the page is not yet generated, this will be displayed
           // initially until getStaticProps() finishes running
           router.isFallback
             ? (<div className={styles.loadingContainer}><Loading /></div>)
-            : (<div>
+            : (<div className={styles.productPageContainer}>
               <div className={styles.block}>
 
-                <span>{
+                <div className={styles.productImageContainer}>{
                   product.Image
                     ? (
                       <img src={product.Image.url} className={styles.productImage} />
                     )
                     : <img src="/productPlaceholder.png" className={styles.productImage} />
-                }</span>
-                <span className={styles.productDetails}>
-                  <h1>{product.Name}</h1>
-                  <h2 className={styles.productTitle}>{product.SecondaryName}</h2>
+                }</div>
+                <div className={styles.productDetails}>
+                  <h1 className={styles.productTitle}>{product.Name}</h1>
+                  <h2 className={styles.productSecondaryTitle}>{product.SecondaryName}</h2>
                   <div className={styles.categoryPriceRow}>
                     <span className={styles.productCategory}>{product.category && product.category.Name}</span>
                     <span className={styles.productPrice}>
@@ -59,25 +52,30 @@ export default function Product({ product }) {
                     </span>
                   </div>
                   <hr></hr>
-                  <h3>Series</h3>
-                  <div className={styles.productField}>
-                    <span className={styles.fieldsRight}>{product.SeriesName}</span><span className={styles.fieldsLeft}>{product.SeriesNameAlternate}</span>
+                  <div className={styles.productFieldsContainer}>
+                    <h3 className={styles.productFieldHeader}>Series</h3>
+                    <div className={styles.productField}>
+                      <span className={styles.fieldsRight}>{product.SeriesName}</span><span className={styles.fieldsLeft}>{product.SeriesNameAlternate}</span>
+                    </div>
+                    <h3 className={styles.productFieldHeader}>Author</h3>
+                    <div className={styles.productField}>
+                      <span className={styles.fieldsRight}>{product.Author}</span><span className={styles.fieldsLeft}>{product.AuthorAlternate}</span>
+                    </div>
+                    <h3 className={styles.productFieldHeader}>Publisher</h3>
+                    <div className={styles.productField}>
+                      <span className={styles.fieldsRight}>{product.Publisher}</span><span className={styles.fieldsLeft}>{product.PublisherAlternate}</span>
+                    </div>
                   </div>
-                  <h3>Author</h3>
-                  <div className={styles.productField}>
-                    <span className={styles.fieldsRight}>{product.Author}</span><span className={styles.fieldsLeft}>{product.AuthorAlternate}</span>
-                  </div>
-                  <h3>Publisher</h3>
-                  <div className={styles.productField}>
-                    <span className={styles.fieldsRight}>{product.Publisher}</span><span className={styles.fieldsLeft}>{product.PublisherAlternate}</span>
-                  </div>
-                </span>
+                </div>
               </div>
               <div className={styles.description}>
                 <h3>Description</h3>
                 <div>
                   <ReactMarkdown source={product.Description} />
                 </div>
+                <p className={styles.storeAvailability}>
+                  All products are subject to store availability. If you would like to reserve an item, please give us a call at <Link href="tel:123-456-7890"><a>(604) 301-9075</a></Link> and we'd be happy to put the item aside for you!
+                </p>
               </div>
             </div>)
         }

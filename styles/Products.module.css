@@ -27,3 +27,18 @@
     flex-wrap: wrap;
     justify-content: flex-start;
 }
+
+.searchResultsFor {
+    line-height: 1;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.clearFilter {
+    font-size: 11px;
+    background: #ffffff;
+    border: none;
+    text-decoration: underline;
+    color: #d83b27;
+    margin-left: 20px;
+}

@@ -16,7 +16,6 @@ export default function Home({ home, products, blogs }) {
     <div className={styles.container}>
       <Head>
         <title>Halfmoon Manga + Anime</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header activePage="Home" />
       <main className={styles.main}>
