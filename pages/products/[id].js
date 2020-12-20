@@ -36,19 +36,19 @@ export default function Product({ product }) {
             : (<div>
               <div className={styles.block}>
 
-                {
+                <span>{
                   product.Image
                     ? (
                       <img src={product.Image.url} className={styles.productImage} />
                     )
                     : <img src="/productPlaceholder.png" className={styles.productImage} />
-                }
+                }</span>
                 <span className={styles.productDetails}>
-                  <h2>{product.Name}</h2>
-                  <div>{product.SecondaryName}</div>
-                  <div>{product.Category}
-
-                    <div className={styles.productPrice}>
+                  <h1>{product.Name}</h1>
+                  <h2 className={styles.productTitle}>{product.SecondaryName}</h2>
+                  <div className={styles.categoryPriceRow}>
+                    <span className={styles.productCategory}>{product.category && product.category.Name}</span>
+                    <span className={styles.productPrice}>
                       {
                         (product.onSale && product.SalePrice) &&
                         <span className={styles.salePrice}>${Number.parseFloat(product.SalePrice).toFixed(2)}</span>
@@ -56,21 +56,20 @@ export default function Product({ product }) {
                       <span className={styles.originalPrice}>
                         ${product.Price && Number.parseFloat(product.Price).toFixed(2)}
                       </span>
-                    </div>
-
+                    </span>
                   </div>
                   <hr></hr>
-                  <h4>Series</h4>
-                  <div>
-                    {product.SeriesName} {product.SeriesNameAlternate}
+                  <h3>Series</h3>
+                  <div className={styles.productField}>
+                    <span className={styles.fieldsRight}>{product.SeriesName}</span><span className={styles.fieldsLeft}>{product.SeriesNameAlternate}</span>
                   </div>
-                  <h4>Author</h4>
-                  <div>
-                    {product.Author} {product.AuthorAlternate}
+                  <h3>Author</h3>
+                  <div className={styles.productField}>
+                    <span className={styles.fieldsRight}>{product.Author}</span><span className={styles.fieldsLeft}>{product.AuthorAlternate}</span>
                   </div>
-                  <h4>Publisher</h4>
-                  <div>
-                    {product.Publisher}{product.PublisherAlternate}
+                  <h3>Publisher</h3>
+                  <div className={styles.productField}>
+                    <span className={styles.fieldsRight}>{product.Publisher}</span><span className={styles.fieldsLeft}>{product.PublisherAlternate}</span>
                   </div>
                 </span>
               </div>
