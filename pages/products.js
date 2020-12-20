@@ -17,7 +17,7 @@ import Pagination from '../components/Pagination'
 import Loading from '../components/Loading.js';
 import CategoriesFilter from '../components/CategoriesFilter';
 
-const PAGE_SIZE = 1;
+const PAGE_SIZE = 24;
 
 export default function Products() {
     const router = useRouter();

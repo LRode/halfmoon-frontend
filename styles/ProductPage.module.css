@@ -6,13 +6,9 @@
   padding: 0 15px;
 }
 
-.breadcrumb {
-  
-}
-
 .block {
   width: 100%;
-  height: 500px;
+  min-height: 500px;
   margin-bottom: 50px;
   margin-top: 50px;
   display: flex;
