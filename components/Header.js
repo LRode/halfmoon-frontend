@@ -1,28 +1,58 @@
 import Link from 'next/link'
 import { useState, useRef } from 'react';
+import { useRouter } from 'next/router';
 
 import styles from '../styles/Header.module.css';
 import useOnClickOutside from '../hooks/useOnClickOutside.js';
 
 export default function Header({ activePage }) {
+    const router = useRouter();
+
     const [isOpen, setIsOpen] = useState(false);
     const [isOpenSearch, setIsOpenSearch] = useState(false);
+    const [searchValue, setSearchValue] = useState('');
+
     const mobileNavMenuRef = useRef(null);
     const navSearchRef = useRef(null);
-    useOnClickOutside(mobileNavMenuRef, () => setIsOpen(false));
-    useOnClickOutside(navSearchRef, () => setIsOpenSearch(false));
+    const searchButtonRef = useRef(null);
+    const navButtonRef = useRef(null);
+
+    useOnClickOutside(mobileNavMenuRef, () => {
+        setIsOpen(false)
+    }, navButtonRef);
+    useOnClickOutside(navSearchRef, () => {
+        setIsOpenSearch(false)
+    }, searchButtonRef);
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            handleSearch();
+        }
+    }
+
+    const handleChangeSearchValue = (e) => {
+        if (e && e.target) {
+            setSearchValue(e.target.value);
+        }
+    };
+
+    const handleSearch = () => {
+        router.push(`/products?search=${searchValue}`)
+            .then(() => window.scrollTo(0, 0));
+    };
 
     return (
         <React.Fragment>
-
             <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
             <nav className={styles.navBar}>
-            
-                {isOpen && <button className={styles.menuIconClose} onClick={() => setIsOpen(false)}></button>}
-                {!isOpen && <button className={styles.menuIcon} onClick={() => setIsOpen(true)}></button>}
+                <button
+                    ref={navButtonRef}
+                    className={isOpen ? styles.menuIconClose : styles.menuIcon}
+                    onClick={() => setIsOpen(!isOpen)} />
 
-                <Link href="/"><img src="/HMLogo.svg" alt="logo" className={styles.logo}/></Link>
+
+                <Link href="/"><img src="/HMLogo.svg" alt="logo" className={styles.logo} /></Link>
 
                 <div className={styles.navLinks}>
                     <Link href="/">
@@ -47,14 +77,33 @@ export default function Header({ activePage }) {
                     </Link>
                 </div>
 
-                {isOpenSearch && <button className={styles.searchIconClose} onClick={() => setIsOpenSearch(false)}></button>}
-                {!isOpenSearch && <button className={styles.searchIcon} onClick={() => setIsOpenSearch(true)}></button>}
+                <button
+                    ref={searchButtonRef}
+                    className={isOpenSearch ? styles.searchIconClose : styles.searchIcon}
+                    onClick={() => setIsOpenSearch(!isOpenSearch)} />
 
                 <div ref={navSearchRef} className={`${styles.navSearchContainer} ${isOpenSearch ? styles.open : ''}`}>
-                    <input type="search" name="search" placeholder="Search..." className={styles.searchInput} />
-                    <button type="submit" className={styles.formButton}></button>
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Search products..."
+                        className={styles.searchInput}
+                        value={searchValue}
+                        onKeyDown={handleKeyDown}
+                        onChange={handleChangeSearchValue} />
+                    {
+                        searchValue && (
+                            <button
+                                className={styles.clearButton}
+                                onClick={() => setSearchValue('')} />
+                        )
+                    }
+                    <button
+                        type="submit"
+                        className={styles.formButton}
+                        onClick={handleSearch} />
                 </div>
-            
+
                 <div ref={mobileNavMenuRef} className={`${styles.mobileNavMenu} ${isOpen ? styles.open : ''}`}>
                     <Link href="/">
                         <a className={`${styles.linksNav} ${activePage === 'Home' ? styles.activeLinkNav : ''}`}>

@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
+import qs from 'qs';
 
 import styles from '../styles/Products.module.css';
 import axios from '../services/axios.config';
@@ -16,7 +17,7 @@ import Pagination from '../components/Pagination'
 import Loading from '../components/Loading.js';
 import CategoriesFilter from '../components/CategoriesFilter';
 
-const PAGE_SIZE = 24;
+const PAGE_SIZE = 1;
 
 export default function Products() {
     const router = useRouter();
@@ -28,20 +29,66 @@ export default function Products() {
         currentPage = pageQueryValue - 1;
     }
     let categoryQueryValue = getQueryParam(router, 'category');
-
-    // get total number of products so we can lay out proper pagination
-    const { data: totalProducts } = useSWR(`/products/count${categoryQueryValue ? `?category_eq=${categoryQueryValue}` : ''}`, fetcher);
+    let searchQueryValue = getQueryParam(router, 'search');
 
     const { data: categories } = useSWR(`/categories`, fetcher);
 
     // use PAGE_SIZE and the current page to figure out which element we should start getting results from
     const start = PAGE_SIZE * currentPage;
+    const countQueryString = qs.stringify({
+        ...(categoryQueryValue && { category_eq: categoryQueryValue }),
+        ...(searchQueryValue && {
+            _where: {
+                _or: [
+                    { Name_contains: searchQueryValue },
+                    { SecondaryName_contains: searchQueryValue },
+                    { SeriesName_contains: searchQueryValue },
+                    { SeriesNameAlternate_contains: searchQueryValue },
+                    { Author_contains: searchQueryValue },
+                    { AuthorAlternate_contains: searchQueryValue },
+                    { Publisher_contains: searchQueryValue },
+                    { PublisherAlternate_contains: searchQueryValue }
+                ]
+            }
+        }),
+    });
+
+    const queryString = qs.stringify({
+        _limit: PAGE_SIZE,
+        _sort: 'created_at:DESC',
+        _start: start,
+        ...(categoryQueryValue && { category_eq: categoryQueryValue }),
+        ...(searchQueryValue && {
+            _where: {
+                _or: [
+                    { Name_contains: searchQueryValue },
+                    { SecondaryName_contains: searchQueryValue },
+                    { SeriesName_contains: searchQueryValue },
+                    { SeriesNameAlternate_contains: searchQueryValue },
+                    { Author_contains: searchQueryValue },
+                    { AuthorAlternate_contains: searchQueryValue },
+                    { Publisher_contains: searchQueryValue },
+                    { PublisherAlternate_contains: searchQueryValue }
+                ]
+            }
+        }),
+    });
+
+    // get total number of products so we can lay out proper pagination
+    const { data: totalProducts } = useSWR(`/products/count?${countQueryString}`, fetcher);
+
     const { data: products, error } = useSWR(
-        `/products?_start=${start}&_limit=${PAGE_SIZE}&_sort=created_at:DESC${categoryQueryValue ? `&category_eq=${categoryQueryValue}` : ''}`,
+        // `/products?_start=${start}&_limit=${PAGE_SIZE}&_sort=created_at:DESC${categoryQueryValue ? `&category_eq=${categoryQueryValue}` : ''}`,
+        `/products?${queryString}`,
         fetcher);
 
     const handlePageClick = (selectedPage) => {
-        router.push(`/products?page=${selectedPage}${categoryQueryValue ? `&category=${categoryQueryValue}` : ''}`, undefined, { shallow: true })
+        router.push(`/products?page=${selectedPage}${categoryQueryValue ? `&category=${categoryQueryValue}` : ''}${searchQueryValue ? `&search=${searchQueryValue}` : ''}`, undefined, { shallow: true })
+            .then(() => window.scrollTo(0, 0));
+    };
+
+    const handleClearFilter = () => {
+        router.push(`/products?${categoryQueryValue ? `&category=${categoryQueryValue}` : ''}`, undefined, { shallow: true })
             .then(() => window.scrollTo(0, 0));
     };
 
@@ -49,6 +96,13 @@ export default function Products() {
         ? (<div className="contentColumn"><Loading /></div>)
         : (
             <div className="contentColumn">
+                
+                {searchQueryValue && (
+                    <div className={styles.searchResultsFor}>
+                        Search results for "{searchQueryValue}":
+                        <button className={styles.clearFilter} onClick={handleClearFilter}>Clear filter</button>
+                    </div>
+                )}
                 {products.length === 0 && <p className="noResultsFound">No products found</p>}
                 <div className={styles.productsGrid}>
                     {products.map((product) => (
@@ -63,7 +117,7 @@ export default function Products() {
                             handlePageClick={(page) => {
                                 handlePageClick(parseInt(page.selected, 10) + 1);
                             }}
-                            hrefBuilder={(pageNum) => `/products?page=${pageNum}${categoryQueryValue ? `&category=${categoryQueryValue}` : ''}`} />)
+                            hrefBuilder={(pageNum) => `/products?page=${pageNum}${categoryQueryValue ? `&category=${categoryQueryValue}` : ''}${searchQueryValue ? `&search=${searchQueryValue}` : ''}`} />)
                         : null
                 }
             </div>
@@ -73,7 +127,6 @@ export default function Products() {
         <div className={styles.container}>
             <Head>
                 <title>Products | Halfmoon Manga + Anime</title>
-                <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header activePage="Products" />
             <main className="main">
@@ -92,7 +145,7 @@ export default function Products() {
                                 if (!categoryId) {
                                     return `/products`;
                                 }
-                                return `/products?category=${categoryId}`;
+                                return `/products?category=${categoryId}${searchQueryValue ? `&search=${searchQueryValue}` : ''}`;
                             }} />
                     </div>
                     {
