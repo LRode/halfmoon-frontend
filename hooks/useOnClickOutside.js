@@ -6,12 +6,12 @@ import { useEffect } from 'react';
  * @param {Node} ref  - Reference to element that we want to watch for when we click outside of
  * @param {Function} handler - Function that handles what happens when a click outside happens
  */
-function useOnClickOutside(ref, handler) {
+function useOnClickOutside(ref, handler, extraRef = null) {
     useEffect(
         () => {
             const listener = event => {
                 // Do nothing if clicking ref's element or descendent elements
-                if (!ref.current || ref.current.contains(event.target)) {
+                if (!ref.current || ref.current.contains(event.target) || (extraRef && (!extraRef.current || extraRef.current.contains(event.target))) ) {
                     return;
                 }
 

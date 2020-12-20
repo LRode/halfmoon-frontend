@@ -69,7 +69,6 @@ export default function Posts() {
         <div className={styles.container}>
             <Head>
                 <title>Blog | Halfmoon Manga + Anime</title>
-                <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header activePage="Blog" />
             <main className="main">

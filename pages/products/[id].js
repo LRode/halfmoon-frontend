@@ -12,7 +12,6 @@ export default function Product({ product }) {
       <div className={`${styles.container}`}>
         <Head>
           <title>{product.Name} | Halfmoon Manga + Anime </title>
-          <link rel="icon" href="/favicon.ico" />
         </Head>
   
         <Header activePage="Products" />
