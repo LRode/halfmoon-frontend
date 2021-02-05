@@ -12,7 +12,7 @@ export default function FullBlog({ post }) {
                         <h1 className={styles.postTitle}>{post.Title}</h1>
                     </div>
                     <div className={styles.date}>
-                        <p>{post.Date} | {post.post_category.Name}</p>
+                        <p>{post.Date} | {post.post_category && post.post_category.Name}</p>
                     </div>
                     <div>
                         <hr className={styles.solid} />
