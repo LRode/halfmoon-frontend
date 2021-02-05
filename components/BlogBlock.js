@@ -22,7 +22,10 @@ export default function BlogBlock({ post }) {
                                 <h3>{post.Title}</h3>
                             </div>
                             <div>
-                                <p>{post.Date} | {post.post_category && post.post_category.Name}</p>
+                                {
+                                    (post.Date || post.post_category) &&
+                                    <p>{post.Date} | {post.post_category && post.post_category.Name}</p>
+                                }
                             </div>
                             <div className={styles.blogDetails}>
                                 <p className={styles.content}>{post.Content}</p>

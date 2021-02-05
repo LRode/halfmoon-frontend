@@ -23,7 +23,7 @@ export default function PostsGallery({ posts }) {
                 </div>
 
                 <CTAButton href="/blog" className={styles.CTAbutton}>
-                    view all posts
+                    View all posts
                 </CTAButton>
             </div>
         </div>

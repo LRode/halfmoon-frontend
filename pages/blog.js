@@ -36,7 +36,7 @@ export default function Posts() {
     // use PAGE_SIZE and the current page to figure out which element we should start getting results from
     const start = PAGE_SIZE * currentPage;
     const { data: posts, error } = useSWR(
-        `/posts?_start=${start}&_limit=${PAGE_SIZE}&_sort=date:DESC${categoryQueryValue ? `&post_category_eq=${categoryQueryValue}` : ''}`,
+        `/posts?_start=${start}&_limit=${PAGE_SIZE}&_sort=updated_at:DESC${categoryQueryValue ? `&post_category_eq=${categoryQueryValue}` : ''}`,
         fetcher);
 
     const handlePageClick = (selectedPage) => {

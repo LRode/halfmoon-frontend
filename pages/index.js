@@ -24,7 +24,7 @@ export default function Home({ home, products, blogs }) {
           {home.CovidAlert ? <CovidAlert data={home} /> : null}
           <About data={home} />
           {(products && products.length > 0) && <ProductsGallery products={products} />}
-          {(blogs && blogs.length > 0) && <ProductsGallery products={blogs} />}
+          {(blogs && blogs.length > 0) && <PostsGallery posts={blogs} />}
         </div>
         <ContactSection />
       </main>
