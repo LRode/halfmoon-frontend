@@ -23,8 +23,8 @@ export default function Home({ home, products, blogs }) {
         <div className={styles.homeContentContainer}>
           {home.CovidAlert ? <CovidAlert data={home} /> : null}
           <About data={home} />
-          <ProductsGallery products={products} />
-          <PostsGallery posts={blogs} />
+          {(products && products.length > 0) && <ProductsGallery products={products} />}
+          {(blogs && blogs.length > 0) && <ProductsGallery products={blogs} />}
         </div>
         <ContactSection />
       </main>
