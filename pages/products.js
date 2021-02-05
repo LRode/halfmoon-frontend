@@ -127,6 +127,7 @@ export default function Products() {
         <div className={styles.container}>
             <Head>
                 <title>Products | Halfmoon Manga + Anime</title>
+                <link rel="canonical" href="https://www.animanga.me/products" />
             </Head>
             <Header activePage="Products" />
             <main className="main">

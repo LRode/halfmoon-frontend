@@ -13,10 +13,13 @@ import Loading from '../../components/Loading';
 export default function Product({ product }) {
   const router = useRouter();
 
+  const canonicalURL = product ? `https://www.animanga.me/${product.id}` : '';
+
   return (
     <div className={`${styles.container}`}>
       <Head>
         <title>{product && product.Name} | Halfmoon Manga + Anime </title>
+        <link rel="canonical" href={canonicalURL} />
       </Head>
 
       <Header activePage="Products" />

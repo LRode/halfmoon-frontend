@@ -69,6 +69,7 @@ export default function Posts() {
         <div className={styles.container}>
             <Head>
                 <title>Blog | Halfmoon Manga + Anime</title>
+                <link rel="canonical" href="https://www.animanga.me/blog" />
             </Head>
             <Header activePage="Blog" />
             <main className="main">

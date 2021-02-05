@@ -14,6 +14,8 @@ import Loading from '../../components/Loading';
 export default function Blog({ post }) {
   const router = useRouter();
 
+  const canonicalURL = post ? `https://www.animanga.me/${post.Slug}` : '';
+
   return (
     <div className={`${styles.container}`}>
       <Head>
