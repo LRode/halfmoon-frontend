@@ -21,6 +21,9 @@ export default function Product({ product }) {
         <title>{product && product.Name} | Halfmoon Manga + Anime </title>
         <meta name='title' content={`${product && product.Name} | Halfmoon Manga + Anime`} />
         <meta property="og:title" content={`${product && product.Name} | Halfmoon Manga + Anime`} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta property="twitter:title" content={`${product && product.Name} | Halfmoon Manga + Anime`} />
         <link rel="canonical" href={canonicalURL} />
       </Head>
 

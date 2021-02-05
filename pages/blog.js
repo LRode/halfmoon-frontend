@@ -71,6 +71,9 @@ export default function Posts() {
                 <title>Blog | Halfmoon Manga + Anime</title>
                 <meta name='title' content='Blog | Halfmoon Manga + Anime' />
                 <meta property="og:title" content='Blog | Halfmoon Manga + Anime' />
+                <meta property="og:url" content="https://animanga.me/blog" />
+                <meta property="twitter:url" content="https://animanga.me/blog" />
+                <meta property="twitter:title" content="Blog | Halfmoon Anime & Manga" />
                 <link rel="canonical" href="https://www.animanga.me/blog" />
             </Head>
             <Header activePage="Blog" />

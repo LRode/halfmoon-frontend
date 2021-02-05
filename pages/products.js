@@ -129,6 +129,9 @@ export default function Products() {
                 <title>Products | Halfmoon Manga + Anime</title>
                 <meta name='title' content='Products | Halfmoon Manga + Anime' />
                 <meta property="og:title" content='Products | Halfmoon Manga + Anime' />
+                <meta property="og:url" content="https://animanga.me/products" />
+                <meta property="twitter:url" content="https://animanga.me/products" />
+                <meta property="twitter:title" content="Products | Halfmoon Anime & Manga" />
                 <link rel="canonical" href="https://www.animanga.me/products" />
             </Head>
             <Header activePage="Products" />

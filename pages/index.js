@@ -18,6 +18,9 @@ export default function Home({ home, products, blogs }) {
         <title>Halfmoon Manga + Anime</title>
         <meta name='title' content='Halfmoon Manga + Anime' />
         <meta property='og:title' content='Halfmoon Manga + Anime' />
+        <meta property="og:url" content="https://animanga.me/" />
+        <meta property="twitter:url" content="https://animanga.me/" />
+        <meta property="twitter:title" content="Halfmoon Anime & Manga" />
         <link rel="canonical" href="https://www.animanga.me/" />
       </Head>
       <Header activePage="Home" />

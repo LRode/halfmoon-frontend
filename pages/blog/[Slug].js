@@ -21,7 +21,10 @@ export default function Blog({ post }) {
       <Head>
         <title>{post && post.Title} | Halfmoon Manga + Anime</title>
         <meta name='title' content={`${post && post.Title} | Halfmoon Manga + Anime`} />
+        <meta property="og:url" content={canonicalURL} />
         <meta property="og:title" content={`${post && post.Title} | Halfmoon Manga + Anime`} />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta property="twitter:title" content={`${post && post.Title} | Halfmoon Manga + Anime`} />
       </Head>
       <Header activePage="Blog" />
       <main className="main">
