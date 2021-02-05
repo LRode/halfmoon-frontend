@@ -16,7 +16,7 @@ export default function Product({ product }) {
   return (
     <div className={`${styles.container}`}>
       <Head>
-        <title>{product.Name} | Halfmoon Manga + Anime </title>
+        <title>{product && product.Name} | Halfmoon Manga + Anime </title>
       </Head>
 
       <Header activePage="Products" />

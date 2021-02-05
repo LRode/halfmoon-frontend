@@ -17,7 +17,7 @@ export default function Blog({ post }) {
   return (
     <div className={`${styles.container}`}>
       <Head>
-        <title>{post.Title} | Halfmoon Manga + Anime</title>
+        <title>{post && post.Title} | Halfmoon Manga + Anime</title>
       </Head>
       <Header activePage="Blog" />
       <main className="main">
