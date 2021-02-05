@@ -20,6 +20,8 @@ export default function Blog({ post }) {
     <div className={`${styles.container}`}>
       <Head>
         <title>{post && post.Title} | Halfmoon Manga + Anime</title>
+        <meta name='title' content={`${post && post.Title} | Halfmoon Manga + Anime`} />
+        <meta property="og:title" content={`${post && post.Title} | Halfmoon Manga + Anime`} />
       </Head>
       <Header activePage="Blog" />
       <main className="main">

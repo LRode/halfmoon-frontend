@@ -19,6 +19,8 @@ export default function Product({ product }) {
     <div className={`${styles.container}`}>
       <Head>
         <title>{product && product.Name} | Halfmoon Manga + Anime </title>
+        <meta name='title' content={`${product && product.Name} | Halfmoon Manga + Anime`} />
+        <meta property="og:title" content={`${product && product.Name} | Halfmoon Manga + Anime`} />
         <link rel="canonical" href={canonicalURL} />
       </Head>
 
