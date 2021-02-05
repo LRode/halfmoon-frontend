@@ -7,6 +7,7 @@ export default function CategoriesFilter({
     activeCategoryId,
     hrefBuilder,
 }) {
+    // categories.sort((a, b) => a.Name > b.Name ? 1 : -1)
     return (
         <React.Fragment>
             <h2 className={styles.categoriesHeader}>{headerText}</h2>
@@ -19,7 +20,7 @@ export default function CategoriesFilter({
                         </a>
                     </Link>
                 </li>
-                {categories && categories.map((category) => (
+                {categories && categories.sort((a, b) => a.Name > b.Name ? 1 : -1).map((category) => (
                     <li key={category.id} className={`${styles.categoryItem} ${parseInt(activeCategoryId, 10) === parseInt(category.id, 10) ? styles.active : ''}`}>
                         <Link href={hrefBuilder(category.id)}>
                             <a>
