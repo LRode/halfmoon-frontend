@@ -46,6 +46,22 @@ button {
   align-items: center;
 }
 
+.sortingContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.sortingColumn {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  max-width: 1300px;
+  margin: 15px 0;
+  padding: 0 25px;
+}
+
 .filterAndContentContainer {
   display: flex;
   justify-content: center;
@@ -86,6 +102,11 @@ button {
 @media (max-width: 768px) {
   .main {
     padding: 3rem 1rem;
+  }
+
+  .sortingColumn {
+    justify-content: center;
+    margin-bottom: 30px;
   }
 
   .filterAndContentContainer {

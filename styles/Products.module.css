@@ -42,3 +42,11 @@
     color: #d83b27;
     margin-left: 20px;
 }
+
+@media (max-width: 768px) {
+    .productsGrid {
+        justify-content: center;
+    }
+    
+  }
+  

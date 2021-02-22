@@ -16,6 +16,7 @@ import PageTitle from '../components/pageTitle';
 import Pagination from '../components/Pagination'
 import Loading from '../components/Loading.js';
 import CategoriesFilter from '../components/CategoriesFilter';
+import SortingFilter from '../components/SortingFilter';
 
 const PAGE_SIZE = 24;
 
@@ -55,7 +56,7 @@ export default function Products() {
 
     const queryString = qs.stringify({
         _limit: PAGE_SIZE,
-        _sort: 'created_at:DESC',
+        _sort: 'Name:ASC',
         _start: start,
         ...(categoryQueryValue && { category_eq: categoryQueryValue }),
         ...(searchQueryValue && {
@@ -141,6 +142,11 @@ export default function Products() {
                     All products are subject to store availability.
                     If you would like to reserve an item, please give us a call at <Link href="tel:123-456-7890"><a>(604) 301-9075</a></Link> and we'd be happy to put the item aside for you!
                 </p>
+                <div className="sortingContainer">
+                    <div className="sortingColumn">
+                    <SortingFilter/>
+                    </div>
+                </div>
                 <div className="filterAndContentContainer">
                     <div className="filterColumn">
                         <CategoriesFilter
