@@ -30,9 +30,18 @@
     .categoriesList {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
     }
 
     .categoryItem {
         margin-right: 15px;
+    }
+
+    .categoriesHeader {
+        text-align: center;
+    }
+    
+    .categoriesSeparator {
+        width: 100%;
     }
 }

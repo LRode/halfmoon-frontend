@@ -7,7 +7,6 @@ export default function CategoriesFilter({
     activeCategoryId,
     hrefBuilder,
 }) {
-    // categories.sort((a, b) => a.Name > b.Name ? 1 : -1)
     return (
         <React.Fragment>
             <h2 className={styles.categoriesHeader}>{headerText}</h2>

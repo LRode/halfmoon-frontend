@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState} from 'react';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import qs from 'qs';
@@ -21,6 +22,7 @@ const PAGE_SIZE = 24;
 
 export default function Products() {
     const router = useRouter();
+    const [isSort, setIsSort] = useState('Name:ASC');
     let currentPage = 0;
     let pageQueryValue = getQueryParam(router, 'page');
     if (pageQueryValue) {
@@ -55,7 +57,7 @@ export default function Products() {
 
     const queryString = qs.stringify({
         _limit: PAGE_SIZE,
-        _sort: 'created_at:DESC',
+        _sort: isSort,
         _start: start,
         ...(categoryQueryValue && { category_eq: categoryQueryValue }),
         ...(searchQueryValue && {
@@ -141,6 +143,17 @@ export default function Products() {
                     All products are subject to store availability.
                     If you would like to reserve an item, please give us a call at <Link href="tel:123-456-7890"><a>(604) 301-9075</a></Link> and we'd be happy to put the item aside for you!
                 </p>
+                <div className="sortingContainer">
+                    <div className="sortingColumn">
+                        <div class={styles.dropdown}>
+                            <select id='sort' class={styles.dropbtn} onChange={() => setIsSort(sort.value)}>
+                                <option key='Name:ASC' value='Name:ASC' className={styles.dropdownStyle}>Alphabetical</option>
+                                <option key='created_at:DESC' value='created_at:DESC' className={styles.dropdownStyle}>Newest</option>
+                                <option key='created_at:ASC' value='created_at:ASC' className={styles.dropdownStyle}>Oldest</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <div className="filterAndContentContainer">
                     <div className="filterColumn">
                         <CategoriesFilter
