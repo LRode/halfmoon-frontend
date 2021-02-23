@@ -61,10 +61,10 @@ export default function Product({ product }) {
                   </div>
                   <hr></hr>
                   <div className={styles.productFieldsContainer}>
-                    <h3 className={styles.productFieldHeader}>Series</h3>
+                    {!product.SeriesName ? '' : <div><h3 className={styles.productFieldHeader}>Series</h3>
                     <div className={styles.productField}>
                       <span className={styles.fieldsRight}>{product.SeriesName}</span><span className={styles.fieldsLeft}>{product.SeriesNameAlternate}</span>
-                    </div>
+                    </div></div>}
                     <h3 className={styles.productFieldHeader}>Author</h3>
                     <div className={styles.productField}>
                       <span className={styles.fieldsRight}>{product.Author}</span><span className={styles.fieldsLeft}>{product.AuthorAlternate}</span>
@@ -77,10 +77,12 @@ export default function Product({ product }) {
                 </div>
               </div>
               <div className={styles.description}>
-                <h3>Description</h3>
+                {!product.Description ? '' : <div>
+                  <h3>Description</h3>
                 <div>
-                  <ReactMarkdown source={product.Description} />
+                  <ReactMarkdown source={product.Description}/>
                 </div>
+                </div>}
                 <p className={styles.storeAvailability}>
                   All products are subject to store availability. If you would like to reserve an item, please give us a call at <Link href="tel:123-456-7890"><a>(604) 301-9075</a></Link> and we'd be happy to put the item aside for you!
                 </p>
