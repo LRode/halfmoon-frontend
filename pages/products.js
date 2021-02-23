@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState} from 'react';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import qs from 'qs';
@@ -16,12 +17,12 @@ import PageTitle from '../components/pageTitle';
 import Pagination from '../components/Pagination'
 import Loading from '../components/Loading.js';
 import CategoriesFilter from '../components/CategoriesFilter';
-import SortingFilter from '../components/SortingFilter';
 
 const PAGE_SIZE = 24;
 
 export default function Products() {
     const router = useRouter();
+    const [isSort, setIsSort] = useState('Name:ASC');
     let currentPage = 0;
     let pageQueryValue = getQueryParam(router, 'page');
     if (pageQueryValue) {
@@ -56,7 +57,7 @@ export default function Products() {
 
     const queryString = qs.stringify({
         _limit: PAGE_SIZE,
-        _sort: 'Name:ASC',
+        _sort: isSort,
         _start: start,
         ...(categoryQueryValue && { category_eq: categoryQueryValue }),
         ...(searchQueryValue && {
@@ -144,7 +145,13 @@ export default function Products() {
                 </p>
                 <div className="sortingContainer">
                     <div className="sortingColumn">
-                    <SortingFilter/>
+                        <div class={styles.dropdown}>
+                            <select id='sort' class={styles.dropbtn} onChange={() => setIsSort(sort.value)}>
+                                <option key='Name:ASC' value='Name:ASC' className={styles.dropdownStyle}>Alphabetical</option>
+                                <option key='created_at:DESC' value='created_at:DESC' className={styles.dropdownStyle}>Newest</option>
+                                <option key='created_at:ASC' value='created_at:ASC' className={styles.dropdownStyle}>Oldest</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div className="filterAndContentContainer">
