@@ -202,7 +202,7 @@ export default function Products() {
 						<div className="dropdown">
 							<select
 								id="sort"
-								class={styles.dropbtn}
+								className={styles.dropbtn}
 								onChange={() => setIsSort(sort.value)}
 							>
 								<option
