@@ -54,10 +54,6 @@
     outline:none;
   }
   
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
 
 
 @media (max-width: 768px) {

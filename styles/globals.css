@@ -46,6 +46,11 @@ button {
   align-items: center;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
 .sortingContainer {
   display: flex;
   justify-content: center;
